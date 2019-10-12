@@ -18,6 +18,10 @@ public class BinaryTree<T> {
         self.comparator = comparator
     }
     
+    deinit {
+        print("Binary tree is being deallocated.")
+    }
+    
     public func getCount() -> Int {
         return self._count
     }
@@ -35,20 +39,17 @@ public class BinaryTree<T> {
         }
         
         var pivot = root
-        var deep = 1
         
         while true {
             
-            deep += 1
             switch (comparator(newItem, pivot.value)) {
             case .orderedSame:
                 return false
             case .orderedAscending:
                 if (pivot.left == nil) {
                     pivot._leftChild = BinaryNode(newItem)
-                    pivot._leftChild?._parrent = pivot
+                    pivot._leftChild?._parent = pivot
                     _count += 1
-                    pivot._leftChild?._h = deep
                     return true
                 } else {
                     pivot = pivot.left!
@@ -56,9 +57,8 @@ public class BinaryTree<T> {
             case .orderedDescending:
                 if (pivot.right == nil) {
                     pivot._rightChild = BinaryNode(newItem)
-                    pivot._rightChild?._parrent = pivot
+                    pivot._rightChild?._parent = pivot
                     _count += 1
-                    pivot._rightChild?._h = deep
                     return true
                 } else {
                     pivot = pivot.right!
@@ -96,7 +96,7 @@ public class BinaryTree<T> {
         return result
     }
     
-    public func search(_ item: T) -> T? {
+    public func search(_ item: T) -> BinaryNode<T>? {
         
         guard var pivot = self._root else {
             return nil
@@ -106,7 +106,7 @@ public class BinaryTree<T> {
             
             switch (comparator(item, pivot.value)) {
             case .orderedSame:
-                return pivot.value
+                return pivot
             case .orderedAscending:
                 if (pivot.left == nil) {
                     return nil
@@ -117,10 +117,188 @@ public class BinaryTree<T> {
                 if (pivot.right == nil) {
                     return nil
                 } else {
-                    pivot = pivot.left!
+                    pivot = pivot.right!
                 }
             default:
                 return nil
+            }
+        }
+    }
+    
+    public func delete(_ item: T) -> Bool {
+        
+        guard var foundNode = self.search(item) else {
+            return false
+        }
+
+        let parent = foundNode.parent
+        
+        if (foundNode.left == nil && foundNode.right == nil) {
+            
+            if (parent == nil) {    //Otestovane, tato vetva je pre zmazanie posledneho prvku v strome -> korena
+                self._root = nil
+            } else {    //Otestovane, tato vetva je pre zmazanie listu, kt. nema ziadneho laveho / praveho syna
+                
+                if (parent?.left != nil) {
+                    
+                    if (comparator((parent?.left?.value)!, foundNode.value) == .orderedSame) {
+                        parent?._leftChild = nil
+                    } else {
+
+                        parent?._rightChild = nil
+                    }
+                } else {
+
+                    parent?._rightChild = nil
+                }
+            
+                foundNode._parent = nil
+            
+            }
+            
+        } else if ((foundNode.left != nil && foundNode.right == nil) || (foundNode.left == nil && foundNode.right != nil)) {    //Otestovane, tuna sa prepaja referencia s otca na syna
+            
+            if (parent == nil) { //parent not found, foundNode is root
+
+                print("parent = null")
+                if (foundNode.left != nil) {    //check if root has leftChild
+                    self._root = foundNode.left
+                    print("parent = null 1")
+                } else {
+                    self._root = foundNode.right
+                    print("parent = null 2")
+                }
+                
+            } else {    //skontrolovane
+                
+                if (foundNode.left != nil) {
+
+                    if (parent?.left != nil) {
+
+                        if (comparator((parent?.left?.value)!, foundNode.value) == .orderedSame) {
+                            
+                            parent?._leftChild = foundNode.left
+                            foundNode.left?._parent = parent
+                            
+                        } else {
+                            
+                            parent?._rightChild = foundNode.left
+                            foundNode.left?._parent = parent
+                        }
+                        
+                    } else {
+
+                        print("parent = exists 1 2")
+                        parent?._rightChild = foundNode.left
+                        foundNode.left!._parent = parent
+                    }
+
+                    foundNode._leftChild = nil
+                    
+                } else {    //skontrolovane
+
+                    if (parent?.left != nil) {
+
+                        if (comparator((parent?.left?.value)!, foundNode.value) == .orderedSame) {
+                            
+                            parent?._leftChild = foundNode.right
+                            foundNode.right?._parent = parent
+                            
+                        } else {
+
+                            parent?._rightChild = foundNode.right
+                            foundNode.right?._parent = parent
+                        }
+
+                        
+                    } else {
+
+                        parent?._rightChild = foundNode.right
+                        foundNode.right!._parent = parent
+                    }
+
+                    foundNode._rightChild = nil
+                }
+
+                foundNode._parent = nil
+            }
+            
+        } else {
+
+            let leftSubPivot = foundNode.left!
+            let rightSubPivot = foundNode.right!
+            let newNode = self.findMaxOfLeftSubTree(subPivot: leftSubPivot)
+//            var newNodeParent = newNode.parent
+            let newNodeParent = comparator(newNode.parent!.value, foundNode.value) == .orderedSame ? parent : newNode.parent
+//            if (comparator(newNode.parent!.value, foundNode.value) == .orderedSame) {
+//                newNodeParent = parent
+//            }
+
+            if (newNode.left != nil) {
+//                newNodeParent!._rightChild = newNode.left
+                newNodeParent!._rightChild = comparator(newNode.parent!.value, foundNode.value) == .orderedSame ? newNode : newNode.left
+                newNodeParent?._rightChild?._parent = newNodeParent
+            } else {
+                newNodeParent!._rightChild = nil
+            }
+            
+            if (comparator(foundNode.left?.value as Any, newNodeParent?.value as Any) == .orderedSame) {
+
+                newNodeParent?._parent = newNode
+                
+            } else {
+                
+                foundNode.left?._parent = newNode
+            }
+            
+            rightSubPivot._parent = newNode
+            
+            if (parent == nil) {
+                
+                self._root = newNode
+                self._root?._parent = nil
+                rightSubPivot._parent = self._root
+                leftSubPivot._parent = self._root
+                self._root?._rightChild = rightSubPivot
+                self._root?._leftChild = leftSubPivot
+                
+            } else {
+                
+                if (comparator(parent?.left?.value as Any, foundNode.value) == .orderedSame) {
+
+                    foundNode._parent?._leftChild = newNode
+                    
+                } else {
+
+                    foundNode._parent?._rightChild = newNode
+                    
+                }
+                
+                foundNode = newNode
+                if (comparator(newNode.parent!.value, foundNode.value) != .orderedSame) {
+
+                    foundNode._leftChild = leftSubPivot
+                }
+                foundNode._rightChild = rightSubPivot
+                foundNode._parent = parent
+                
+            }
+        }
+        
+        self._count -= 1
+        return true
+    }
+    
+    public func findMaxOfLeftSubTree(subPivot: BinaryNode<T>) -> BinaryNode<T> {
+        
+        var pivot = subPivot
+        while true {
+            
+            if (pivot.right != nil) {
+                pivot = pivot.right!
+            } else {
+
+                return pivot
             }
         }
     }

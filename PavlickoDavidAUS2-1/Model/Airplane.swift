@@ -29,6 +29,10 @@ public class Airplane {
         self._priority = priority
     }
     
+    deinit {
+        print("Airplane instance with priority \(self.priority) is being deallocated.")
+    }
+    
     init(code: String) {
         self._creator = ""
         self._code = code

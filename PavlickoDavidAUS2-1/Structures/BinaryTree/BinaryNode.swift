@@ -13,11 +13,14 @@ public class BinaryNode<T> {
     var _value: T
     var _leftChild: BinaryNode<T>?
     var _rightChild: BinaryNode<T>?
-    var _parrent: BinaryNode<T>?
-    var _h: Int = 1
+    var _parent: BinaryNode<T>?
 
     init(_ value: T) {
         self._value = value
+    }
+    
+    deinit {
+        print("Binary node is being deallocated.")
     }
     
     var value: T {
@@ -40,13 +43,7 @@ public class BinaryNode<T> {
     
     var parent: BinaryNode<T>? {
         get {
-            return self._parrent
-        }
-    }
-    
-    var h: Int {
-        get {
-            return self._h
+            return self._parent
         }
     }
 }
