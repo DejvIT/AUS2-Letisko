@@ -14,7 +14,8 @@
 		320DC0DD234BADDB00E67A5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 320DC0DC234BADDB00E67A5E /* Assets.xcassets */; };
 		320DC0E0234BADDB00E67A5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 320DC0DE234BADDB00E67A5E /* LaunchScreen.storyboard */; };
 		320DC0F2234BD73300E67A5E /* Airplane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DC0F1234BD73300E67A5E /* Airplane.swift */; };
-		327D9B60234CD231003715A7 /* SplayTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327D9B5F234CD231003715A7 /* SplayTree.swift */; };
+		320E07B823531EA8001C995D /* SplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E07B723531EA7001C995D /* SplayNode.swift */; };
+		320E07BA23531EB2001C995D /* SplayTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E07B923531EB2001C995D /* SplayTree.swift */; };
 		32B74A0D2350C6B800627E56 /* BinaryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B74A0C2350C6B800627E56 /* BinaryNode.swift */; };
 		32B74A0F2350C6C400627E56 /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B74A0E2350C6C400627E56 /* BinaryTree.swift */; };
 /* End PBXBuildFile section */
@@ -29,7 +30,8 @@
 		320DC0DF234BADDB00E67A5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		320DC0E1234BADDB00E67A5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		320DC0F1234BD73300E67A5E /* Airplane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airplane.swift; sourceTree = "<group>"; };
-		327D9B5F234CD231003715A7 /* SplayTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplayTree.swift; sourceTree = "<group>"; };
+		320E07B723531EA7001C995D /* SplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplayNode.swift; sourceTree = "<group>"; };
+		320E07B923531EB2001C995D /* SplayTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplayTree.swift; sourceTree = "<group>"; };
 		32B74A0C2350C6B800627E56 /* BinaryNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryNode.swift; sourceTree = "<group>"; };
 		32B74A0E2350C6C400627E56 /* BinaryTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTree.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,7 +115,8 @@
 		327D9B5E234CD21B003715A7 /* SplayTree */ = {
 			isa = PBXGroup;
 			children = (
-				327D9B5F234CD231003715A7 /* SplayTree.swift */,
+				320E07B723531EA7001C995D /* SplayNode.swift */,
+				320E07B923531EB2001C995D /* SplayTree.swift */,
 			);
 			path = SplayTree;
 			sourceTree = "<group>";
@@ -200,7 +203,8 @@
 			files = (
 				32B74A0F2350C6C400627E56 /* BinaryTree.swift in Sources */,
 				320DC0D8234BADD900E67A5E /* ViewController.swift in Sources */,
-				327D9B60234CD231003715A7 /* SplayTree.swift in Sources */,
+				320E07B823531EA8001C995D /* SplayNode.swift in Sources */,
+				320E07BA23531EB2001C995D /* SplayTree.swift in Sources */,
 				320DC0D4234BADD900E67A5E /* AppDelegate.swift in Sources */,
 				32B74A0D2350C6B800627E56 /* BinaryNode.swift in Sources */,
 				320DC0D6234BADD900E67A5E /* SceneDelegate.swift in Sources */,

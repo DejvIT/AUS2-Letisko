@@ -12,7 +12,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var testLabel: UILabel!
 
-    var binarySearchTree: BinaryTree<Airplane>! = BinaryTree<Airplane>(Airplane.comparator)
+//    var binarySearchTree: BinaryTree<Airplane>! = BinaryTree<Airplane>(Airplane.comparator)
+    var splayTree: SplayTree<Airplane>! = SplayTree<Airplane>(Airplane.comparator)
     
     var result: [Airplane] = []
     
@@ -23,10 +24,9 @@ class ViewController: UIViewController {
         
 //        _ = testLevelOrder(bst: testTree)
 //        result = testTree.levelOrder()
-        let result = binarySearchTree.search(Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 100))
+//        let result = binarySearchTree.search(Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 100))
         
-        print("Number of nodes in the tree: \(binarySearchTree.getCount())")
-        binarySearchTree.debugDescription
+        print("Number of nodes in the tree: \(splayTree.getCount())")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,16 +36,16 @@ class ViewController: UIViewController {
     
     public func test() {
         
-//        let ap40 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 40)
-//        let ap30 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 30)
-//        let ap50 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 50)
-//        let ap20 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 20)
-//        let ap35 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 35)
-//        let ap45 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 45)
-//        let ap60 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 60)
-//        let ap10 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 10)
+        let ap40 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 40)
+        let ap30 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 30)
+        let ap50 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 50)
+        let ap20 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 20)
+        let ap28 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 28)
+        let ap45 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 45)
+        let ap60 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 60)
+        let ap10 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 10)
 //        let ap25 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 25)
-//        let ap32 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 32)
+        let ap32 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 32)
 //        let ap38 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 38)
 //        let ap41 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 41)
 //        let ap70 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 70)
@@ -56,8 +56,8 @@ class ViewController: UIViewController {
 //        let ap58 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 58)
 //        let ap65 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 65)
 //        let ap43 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 43)
-//        let ap44 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 44)
-//        let ap42 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 42)
+        let ap48 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 48)
+        let ap42 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 42)
 //        let ap39 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 39)
 //        let ap31 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 31)
 //        let ap33 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 33)
@@ -70,14 +70,21 @@ class ViewController: UIViewController {
 //        let ap34 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 34)
 //
 //        print("Number of nodes in the tree: \(binarySearchTree.getCount())")
-//        _ = binarySearchTree.insert(ap40)
-//        _ = binarySearchTree.insert(ap30)
-//        _ = binarySearchTree.insert(ap50)
-//        _ = binarySearchTree.insert(ap20)
+        _ = splayTree.insert(ap40)
+        _ = splayTree.insert(ap20)
+        _ = splayTree.insert(ap50)
+        _ = splayTree.insert(ap30)
+        _ = splayTree.insert(ap10)
+        _ = splayTree.insert(ap45)
+        _ = splayTree.insert(ap60)
+        _ = splayTree.insert(ap28)
+        _ = splayTree.insert(ap32)
+        _ = splayTree.insert(ap42)
+        _ = splayTree.insert(ap48)
+        
 //        _ = binarySearchTree.insert(ap35)
 //        _ = binarySearchTree.insert(ap45)
 //        _ = binarySearchTree.insert(ap60)
-//        _ = binarySearchTree.insert(ap10)
 //        _ = binarySearchTree.insert(ap25)
 //        _ = binarySearchTree.insert(ap32)
 //        _ = binarySearchTree.insert(ap38)
@@ -103,7 +110,8 @@ class ViewController: UIViewController {
 //        _ = binarySearchTree.insert(ap44)
 //        _ = binarySearchTree.insert(ap75)
 //        _ = binarySearchTree.insert(ap90)
-//        print("Number of nodes in the tree: \(binarySearchTree.getCount())")
+        
+        print("Number of nodes in the tree: \(splayTree.getCount())")
 //
 //        _ = binarySearchTree.delete(ap20)
 //        _ = binarySearchTree.delete(ap35)
@@ -111,20 +119,35 @@ class ViewController: UIViewController {
 //        _ = binarySearchTree.delete(ap50)
 //        _ = binarySearchTree.delete(ap40)
 
+//        _ = splayTree.search(ap10)
+//        _ = splayTree.search(ap50)
+//        _ = splayTree.search(ap42)
         
-        
-        
-        
-        
-        let randomSeed = 100
-        var looper = 1000
+//        _ = splayTree.delete(ap30)
 
-        while looper > 0 {
-            let airplane = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: Int.random(in: 0 ..< randomSeed * 4))
-
-            _ = binarySearchTree.insert(airplane)
-            looper -= 1
-        }
+//        let ap33 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 33)
+//        _ = splayTree.search(ap33)
+        
+//        _ = splayTree.insert(ap22)
+//        _ = splayTree.search(ap45)
+        _ = splayTree.delete(ap10)
+//        _ = splayTree.insert(ap34)
+//        _ = splayTree.insert(ap23)
+//        _ = splayTree.delete(ap45)
+//        _ = splayTree.search(ap22)
+//        _ = splayTree.delete(ap48)
+        
+        
+        
+//        let randomSeed = 100
+//        var looper = 1000
+//
+//        while looper > 0 {
+//            let airplane = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: Int.random(in: 0 ..< randomSeed * 4))
+//
+//            _ = binarySearchTree.insert(airplane)
+//            looper -= 1
+//        }
     }
     
     public func testLevelOrder(bst: BinaryTree<Airplane>) -> [[Int]] {
