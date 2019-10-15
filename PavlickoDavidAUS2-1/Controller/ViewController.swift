@@ -44,10 +44,10 @@ class ViewController: UIViewController {
         let ap45 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 45)
         let ap60 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 60)
         let ap10 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 10)
-//        let ap25 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 25)
+        let ap15 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 15)
         let ap32 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 32)
 //        let ap38 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 38)
-//        let ap41 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 41)
+        let ap41 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 41)
 //        let ap70 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 70)
 //        let ap80 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 80)
 //        let ap75 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 75)
@@ -60,27 +60,30 @@ class ViewController: UIViewController {
         let ap42 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 42)
 //        let ap39 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 39)
 //        let ap31 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 31)
-//        let ap33 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 33)
+        let ap33 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 33)
 //        let ap15 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 15)
 //        let ap22 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 22)
 //        let ap24 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 24)
 //        let ap23 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 23)
-//        let ap28 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 28)
 //        let ap29 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 29)
-//        let ap34 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 34)
+        let ap47 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 47)
 //
 //        print("Number of nodes in the tree: \(binarySearchTree.getCount())")
-        _ = splayTree.insert(ap40)
-        _ = splayTree.insert(ap20)
-        _ = splayTree.insert(ap50)
-        _ = splayTree.insert(ap30)
-        _ = splayTree.insert(ap10)
-        _ = splayTree.insert(ap45)
+        
         _ = splayTree.insert(ap60)
+        _ = splayTree.insert(ap50)
+        _ = splayTree.insert(ap40)
         _ = splayTree.insert(ap28)
-        _ = splayTree.insert(ap32)
-        _ = splayTree.insert(ap42)
+        _ = splayTree.insert(ap45)
+        _ = splayTree.insert(ap41)
         _ = splayTree.insert(ap48)
+        _ = splayTree.insert(ap47)
+        _ = splayTree.insert(ap20)
+        _ = splayTree.insert(ap10)
+        _ = splayTree.insert(ap15)
+        _ = splayTree.insert(ap32)
+        _ = splayTree.insert(ap30)
+        _ = splayTree.insert(ap42)
         
 //        _ = binarySearchTree.insert(ap35)
 //        _ = binarySearchTree.insert(ap45)
@@ -112,32 +115,26 @@ class ViewController: UIViewController {
 //        _ = binarySearchTree.insert(ap90)
         
         print("Number of nodes in the tree: \(splayTree.getCount())")
-//
-//        _ = binarySearchTree.delete(ap20)
-//        _ = binarySearchTree.delete(ap35)
-//        _ = binarySearchTree.delete(ap60)
-//        _ = binarySearchTree.delete(ap50)
-//        _ = binarySearchTree.delete(ap40)
+        
+        _ = splayTree.delete(ap20)  //OK
+        _ = splayTree.delete(ap60)  //OK
+        _ = splayTree.delete(ap50)  //OK
+        _ = splayTree.delete(ap40)  //OK
 
-//        _ = splayTree.search(ap10)
-//        _ = splayTree.search(ap50)
-//        _ = splayTree.search(ap42)
-        
-//        _ = splayTree.delete(ap30)
+        _ = splayTree.search(ap10, delete: false)
+        _ = splayTree.search(ap50, delete: false)
+        _ = splayTree.search(ap42, delete: false)
 
-//        let ap33 = Airplane(creator: "Test s.r.o.", code: "001", minLength: 2500, arrivalTime: 5, flightPathAssigned: 1, departureTime: 0, priority: 33)
-//        _ = splayTree.search(ap33)
+        _ = splayTree.delete(ap30)  //OK
+
+        _ = splayTree.search(ap33, delete: false)
+
+        _ = splayTree.search(ap45, delete: false)
+        _ = splayTree.delete(ap10)  //OK
+        _ = splayTree.delete(ap45)  //OK
+        _ = splayTree.delete(ap48)  //OK
         
-//        _ = splayTree.insert(ap22)
-//        _ = splayTree.search(ap45)
-        _ = splayTree.delete(ap10)
-//        _ = splayTree.insert(ap34)
-//        _ = splayTree.insert(ap23)
-//        _ = splayTree.delete(ap45)
-//        _ = splayTree.search(ap22)
-//        _ = splayTree.delete(ap48)
-        
-        
+        print("Number of nodes in the tree: \(splayTree.getCount())")
         
 //        let randomSeed = 100
 //        var looper = 1000

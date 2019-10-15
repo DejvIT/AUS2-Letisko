@@ -107,7 +107,7 @@ public class SplayTree<T> {
     }
     
     //MARK: - Search
-    public func search(_ item: T) -> SplayNode<T>? {
+    public func search(_ item: T, delete: Bool) -> SplayNode<T>? {
         
         guard var pivot = self._root else {
             return nil
@@ -117,18 +117,24 @@ public class SplayTree<T> {
             
             switch (comparator(item, pivot.value)) {
             case .orderedSame:
-                self.splay(node: pivot)
+                if (!delete) {
+                    self.splay(node: pivot)
+                }
                 return pivot
             case .orderedAscending:
                 if (pivot.left == nil) {
-                    self.splay(node: pivot)
+                    if (!delete) {
+                        self.splay(node: pivot)
+                    }
                     return nil
                 } else {
                     pivot = pivot.left!
                 }
             case .orderedDescending:
                 if (pivot.right == nil) {
-                    self.splay(node: pivot)
+                    if (!delete) {
+                        self.splay(node: pivot)
+                    }
                     return nil
                 } else {
                     pivot = pivot.right!
@@ -142,17 +148,20 @@ public class SplayTree<T> {
     //MARK: - Delete
     public func delete(_ item: T) -> Bool {
         
-        guard var foundNode = self.search(item) else {
+        //TODO, tu je chyba, sprav vlasty search bez splaya
+        guard let foundNode = self.search(item, delete: true) else {
             return false
         }
 
         let parent = foundNode.parent
         
-        if (foundNode.left == nil && foundNode.right == nil) {
+        if (foundNode.left == nil && foundNode.right == nil) {  //LIST
             
-            if (parent == nil) {    //Otestovane, tato vetva je pre zmazanie posledneho prvku v strome -> korena
+            if (parent == nil) {
+                
                 self._root = nil
-            } else {    //Otestovane, tato vetva je pre zmazanie listu, kt. nema ziadneho laveho / praveho syna
+                
+            } else {
                 
                 if (parent?.left != nil) {
                     
@@ -171,18 +180,17 @@ public class SplayTree<T> {
             
             }
             
-        } else if ((foundNode.left != nil && foundNode.right == nil) || (foundNode.left == nil && foundNode.right != nil)) {    //Otestovane, tuna sa prepaja referencia s otca na syna
+        } else if ((foundNode.left != nil && foundNode.right == nil) || (foundNode.left == nil && foundNode.right != nil)) {    //Has on subtree
             
             if (parent == nil) { //parent not found, foundNode is root
 
-                print("parent = null")
                 if (foundNode.left != nil) {    //check if root has leftChild
                     self._root = foundNode.left
-                    print("parent = null 1")
                 } else {
                     self._root = foundNode.right
-                    print("parent = null 2")
                 }
+                
+                self._root?._parent = nil
                 
             } else {    //skontrolovane
                 
@@ -203,7 +211,6 @@ public class SplayTree<T> {
                         
                     } else {
 
-                        print("parent = exists 1 2")
                         parent?._rightChild = foundNode.left
                         foundNode.left!._parent = parent
                     }
@@ -243,61 +250,38 @@ public class SplayTree<T> {
             let leftSubPivot = foundNode.left!
             let rightSubPivot = foundNode.right!
             let newNode = self.findMaxOfLeftSubTree(subPivot: leftSubPivot)
-//            var newNodeParent = newNode.parent
-            let newNodeParent = comparator(newNode.parent!.value, foundNode.value) == .orderedSame ? parent : newNode.parent
-//            if (comparator(newNode.parent!.value, foundNode.value) == .orderedSame) {
-//                newNodeParent = parent
-//            }
+            let newNodeParent = newNode.parent
 
-            if (newNode.left != nil) {
-//                newNodeParent!._rightChild = newNode.left
-                newNodeParent!._rightChild = comparator(newNode.parent!.value, foundNode.value) == .orderedSame ? newNode : newNode.left
-                newNodeParent?._rightChild?._parent = newNodeParent
-            } else {
-                newNodeParent!._rightChild = nil
-            }
+            newNode._parent = parent
             
-            if (comparator(foundNode.left?.value as Any, newNodeParent?.value as Any) == .orderedSame) {
-
-                newNodeParent?._parent = newNode
-                
-            } else {
-                
-                foundNode.left?._parent = newNode
-            }
-            
-            rightSubPivot._parent = newNode
-            
-            if (parent == nil) {
-                
-                self._root = newNode
-                self._root?._parent = nil
-                rightSubPivot._parent = self._root
-                leftSubPivot._parent = self._root
-                self._root?._rightChild = rightSubPivot
-                self._root?._leftChild = leftSubPivot
-                
-            } else {
-                
-                if (comparator(parent?.left?.value as Any, foundNode.value) == .orderedSame) {
-
-                    foundNode._parent?._leftChild = newNode
-                    
+            if (parent != nil) {
+                if (comparator(parent?.value as Any, newNode.value) == .orderedAscending) {
+                    parent?._rightChild = newNode
                 } else {
-
-                    foundNode._parent?._rightChild = newNode
-                    
+                    parent?._leftChild = newNode
+                }
+            }
+            
+            newNode._rightChild = rightSubPivot
+            
+            if (foundNode.right != nil) {
+                rightSubPivot._parent = newNode
+            }
+            
+            if (comparator(newNode.value, leftSubPivot.value) != . orderedSame) {
+                
+                if (newNode.left != nil) {
+                    newNodeParent!._rightChild = newNode.left
+                    newNodeParent?._rightChild?._parent = newNodeParent
+                } else {
+                    newNodeParent!._rightChild = nil
                 }
                 
-                foundNode = newNode
-                if (comparator(newNode.parent!.value, foundNode.value) != .orderedSame) {
-
-                    foundNode._leftChild = leftSubPivot
-                }
-                foundNode._rightChild = rightSubPivot
-                foundNode._parent = parent
+                newNode._leftChild = leftSubPivot
+                leftSubPivot._parent = newNode
                 
             }
+
         }
         
         self._count -= 1
@@ -340,7 +324,7 @@ public class SplayTree<T> {
             //1. pivot's parent is a root of the tree
             if (grandParent == nil) {
                 
-                print("simple rotation")
+//                print("simple rotation")
                 //Left sided node
                 if (comparator(pivot.value, parent!.value) == .orderedAscending) {
 
@@ -383,7 +367,7 @@ public class SplayTree<T> {
                 // Left sided
                 if ((comparator(pivot.value, parent!.value) == .orderedAscending) && (comparator(parent!.value, grandParent!.value) == .orderedAscending)) {
                     
-                    print("both are left sided")
+//                    print("both are left sided")
                     
                     pivot._parent = grandParent?.parent
                     
@@ -429,7 +413,7 @@ public class SplayTree<T> {
                     
                 } else if ((comparator(pivot.value, parent!.value) == .orderedDescending) && (comparator(parent!.value, grandParent!.value) == .orderedDescending)) {  // Right sided
                     
-                    print("both are right sided")
+//                    print("both are right sided")
                     
                     pivot._parent = grandParent?.parent
                     
@@ -475,7 +459,7 @@ public class SplayTree<T> {
                     
                 } else if ((comparator(pivot.value, parent!.value) == .orderedAscending) && (comparator(parent!.value, grandParent!.value) == .orderedDescending)) {  //3. combination, left sided node and right sided parent
                     
-                    print("node is left sided, but the parent is right sided")
+//                    print("node is left sided, but the parent is right sided")
                     
                     pivot._parent = grandParent?.parent
                     
@@ -519,7 +503,7 @@ public class SplayTree<T> {
                     
                 } else {  //right sided node and left sided parent
                     
-                    print("node is right sided, but the parent is left sided")
+//                    print("node is right sided, but the parent is left sided")
                     
                     pivot._parent = grandParent?.parent
                     
