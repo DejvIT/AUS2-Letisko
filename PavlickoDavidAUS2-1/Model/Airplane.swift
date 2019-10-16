@@ -30,7 +30,7 @@ public class Airplane {
     }
     
     deinit {
-        print("Airplane instance with priority \(self.priority) is being deallocated.")
+//        print("Airplane instance with priority \(self.priority) is being deallocated.")
     }
     
     init(code: String) {

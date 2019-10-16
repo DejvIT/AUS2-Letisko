@@ -148,7 +148,6 @@ public class SplayTree<T> {
     //MARK: - Delete
     public func delete(_ item: T) -> Bool {
         
-        //TODO, tu je chyba, sprav vlasty search bez splaya
         guard let foundNode = self.search(item, delete: true) else {
             return false
         }
