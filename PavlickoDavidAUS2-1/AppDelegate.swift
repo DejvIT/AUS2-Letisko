@@ -11,8 +11,13 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
+    static let shared = AppDelegate()
+    
+    let junoBlue = UIColor(red: 52/255.0, green: 178/255.0, blue: 229/255.0, alpha: 1.0)    //34B2E5
+    let friPurple = UIColor(red: 136/255.0, green: 0/255.0, blue: 255/255.0, alpha: 1.0)   //8800FF
+    
+    var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true

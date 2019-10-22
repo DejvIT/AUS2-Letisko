@@ -16,13 +16,22 @@
 		320DC0F2234BD73300E67A5E /* Airplane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DC0F1234BD73300E67A5E /* Airplane.swift */; };
 		320E07B823531EA8001C995D /* SplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E07B723531EA7001C995D /* SplayNode.swift */; };
 		320E07BA23531EB2001C995D /* SplayTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E07B923531EB2001C995D /* SplayTree.swift */; };
+		323975AE235B237900DEA94E /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323975AD235B237900DEA94E /* History.swift */; };
+		323975B3235B901D00DEA94E /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323975B2235B901D00DEA94E /* Queue.swift */; };
+		323975B6235B90D500DEA94E /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323975B5235B90D500DEA94E /* LinkedList.swift */; };
+		323975B8235B916500DEA94E /* LinkedListNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323975B7235B916500DEA94E /* LinkedListNode.swift */; };
+		325304EF235A141A00135376 /* GeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325304EE235A141A00135376 /* GeneratorViewController.swift */; };
+		325304F1235A652900135376 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325304F0235A652900135376 /* Spinner.swift */; };
+		3280DB642359E62700485902 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3280DB632359E62700485902 /* TableViewController.swift */; };
 		32B74A0D2350C6B800627E56 /* BinaryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B74A0C2350C6B800627E56 /* BinaryNode.swift */; };
 		32B74A0F2350C6C400627E56 /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B74A0E2350C6C400627E56 /* BinaryTree.swift */; };
+		32C06048235C2E7A008B28ED /* PairingHeapNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C06047235C2E7A008B28ED /* PairingHeapNode.swift */; };
+		32C0604A235C2E84008B28ED /* PairingHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C06049235C2E84008B28ED /* PairingHeap.swift */; };
 		32D71BC523571E71002B871B /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D71BC423571E71002B871B /* Generator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		320DC0D0234BADD900E67A5E /* PavlickoDavidAUS2-1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PavlickoDavidAUS2-1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		320DC0D0234BADD900E67A5E /* FRI Airlines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FRI Airlines.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		320DC0D3234BADD900E67A5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		320DC0D5234BADD900E67A5E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		320DC0D7234BADD900E67A5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,8 +42,17 @@
 		320DC0F1234BD73300E67A5E /* Airplane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airplane.swift; sourceTree = "<group>"; };
 		320E07B723531EA7001C995D /* SplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplayNode.swift; sourceTree = "<group>"; };
 		320E07B923531EB2001C995D /* SplayTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplayTree.swift; sourceTree = "<group>"; };
+		323975AD235B237900DEA94E /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		323975B2235B901D00DEA94E /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		323975B5235B90D500DEA94E /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
+		323975B7235B916500DEA94E /* LinkedListNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedListNode.swift; sourceTree = "<group>"; };
+		325304EE235A141A00135376 /* GeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorViewController.swift; sourceTree = "<group>"; };
+		325304F0235A652900135376 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		3280DB632359E62700485902 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		32B74A0C2350C6B800627E56 /* BinaryNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryNode.swift; sourceTree = "<group>"; };
 		32B74A0E2350C6C400627E56 /* BinaryTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTree.swift; sourceTree = "<group>"; };
+		32C06047235C2E7A008B28ED /* PairingHeapNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingHeapNode.swift; sourceTree = "<group>"; };
+		32C06049235C2E84008B28ED /* PairingHeap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingHeap.swift; sourceTree = "<group>"; };
 		32D71BC423571E71002B871B /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,7 +78,7 @@
 		320DC0D1234BADD900E67A5E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				320DC0D0234BADD900E67A5E /* PavlickoDavidAUS2-1.app */,
+				320DC0D0234BADD900E67A5E /* FRI Airlines.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,6 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				320DC0F1234BD73300E67A5E /* Airplane.swift */,
+				325304F0235A652900135376 /* Spinner.swift */,
+				323975AD235B237900DEA94E /* History.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -102,6 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				320DC0D7234BADD900E67A5E /* ViewController.swift */,
+				3280DB632359E62700485902 /* TableViewController.swift */,
+				325304EE235A141A00135376 /* GeneratorViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -109,10 +131,39 @@
 		320DC0EB234BCF9E00E67A5E /* Structures */ = {
 			isa = PBXGroup;
 			children = (
+				323975B4235B90C900DEA94E /* LinkedList */,
+				323975B1235B8FFE00DEA94E /* Queue */,
+				323975AF235B698E00DEA94E /* PairingHeap */,
 				32B74A0B2350C67E00627E56 /* BinaryTree */,
 				327D9B5E234CD21B003715A7 /* SplayTree */,
 			);
 			path = Structures;
+			sourceTree = "<group>";
+		};
+		323975AF235B698E00DEA94E /* PairingHeap */ = {
+			isa = PBXGroup;
+			children = (
+				32C06047235C2E7A008B28ED /* PairingHeapNode.swift */,
+				32C06049235C2E84008B28ED /* PairingHeap.swift */,
+			);
+			path = PairingHeap;
+			sourceTree = "<group>";
+		};
+		323975B1235B8FFE00DEA94E /* Queue */ = {
+			isa = PBXGroup;
+			children = (
+				323975B2235B901D00DEA94E /* Queue.swift */,
+			);
+			path = Queue;
+			sourceTree = "<group>";
+		};
+		323975B4235B90C900DEA94E /* LinkedList */ = {
+			isa = PBXGroup;
+			children = (
+				323975B5235B90D500DEA94E /* LinkedList.swift */,
+				323975B7235B916500DEA94E /* LinkedListNode.swift */,
+			);
+			path = LinkedList;
 			sourceTree = "<group>";
 		};
 		327D9B5E234CD21B003715A7 /* SplayTree */ = {
@@ -158,7 +209,7 @@
 			);
 			name = "PavlickoDavidAUS2-1";
 			productName = "PavlickoDavidAUS2-1";
-			productReference = 320DC0D0234BADD900E67A5E /* PavlickoDavidAUS2-1.app */;
+			productReference = 320DC0D0234BADD900E67A5E /* FRI Airlines.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -212,15 +263,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32C0604A235C2E84008B28ED /* PairingHeap.swift in Sources */,
 				32B74A0F2350C6C400627E56 /* BinaryTree.swift in Sources */,
+				323975B3235B901D00DEA94E /* Queue.swift in Sources */,
 				320DC0D8234BADD900E67A5E /* ViewController.swift in Sources */,
+				32C06048235C2E7A008B28ED /* PairingHeapNode.swift in Sources */,
 				320E07B823531EA8001C995D /* SplayNode.swift in Sources */,
+				3280DB642359E62700485902 /* TableViewController.swift in Sources */,
 				320E07BA23531EB2001C995D /* SplayTree.swift in Sources */,
 				320DC0D4234BADD900E67A5E /* AppDelegate.swift in Sources */,
 				32B74A0D2350C6B800627E56 /* BinaryNode.swift in Sources */,
+				323975B8235B916500DEA94E /* LinkedListNode.swift in Sources */,
+				325304F1235A652900135376 /* Spinner.swift in Sources */,
 				32D71BC523571E71002B871B /* Generator.swift in Sources */,
 				320DC0D6234BADD900E67A5E /* SceneDelegate.swift in Sources */,
+				323975AE235B237900DEA94E /* History.swift in Sources */,
+				323975B6235B90D500DEA94E /* LinkedList.swift in Sources */,
 				320DC0F2234BD73300E67A5E /* Airplane.swift in Sources */,
+				325304EF235A141A00135376 /* GeneratorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,9 +432,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "sk.davooo.p.PavlickoDavidAUS2-1";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "FRI Airlines";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -390,9 +450,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "sk.davooo.p.PavlickoDavidAUS2-1";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "FRI Airlines";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

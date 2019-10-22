@@ -53,7 +53,7 @@ public class SplayTree<T> {
                     _count += 1
 
                     // Splaying the new node to the top of the tree
-                    self.splay(node: pivot.left!)
+//                    self.splay(node: pivot.left!)
                     
                     return true
                 } else {
@@ -66,7 +66,7 @@ public class SplayTree<T> {
                     _count += 1
                     
                     // Splaying the new node to the top of the tree
-                    self.splay(node: pivot.right!)
+//                    self.splay(node: pivot.right!)
                     
                     return true
                 } else {
@@ -83,6 +83,7 @@ public class SplayTree<T> {
            
         var result: [T] = []
         var discoveredNodes: [SplayNode<T>] = [self._root!]
+        discoveredNodes.reserveCapacity(self._count)
        
         while discoveredNodes.count > 0 {
            
@@ -103,6 +104,33 @@ public class SplayTree<T> {
             }
         }
            
+        return result
+    }
+    
+    //MARK: - In order
+    public func inOrder() -> [T] {
+        
+        var result: [T] = []
+        var discoveredNodes: [SplayNode<T>] = []
+        var pivot = self._root
+      
+        while (pivot != nil || discoveredNodes.isEmpty == false)
+        {
+            while (pivot !=  nil)
+            {
+                discoveredNodes.append(pivot!)
+                pivot = pivot?.left
+            }
+            
+            pivot = discoveredNodes[discoveredNodes.count - 1]
+            discoveredNodes.remove(at: discoveredNodes.count - 1)
+      
+            result.append(pivot!.value)
+            
+            pivot = pivot?.right
+      
+        }
+        
         return result
     }
     

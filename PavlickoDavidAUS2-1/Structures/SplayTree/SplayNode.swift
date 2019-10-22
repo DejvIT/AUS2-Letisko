@@ -20,7 +20,7 @@ public class SplayNode<T> {
     }
     
     deinit {
-//        print("Splay node is being deallocated.")
+        print("Splay node is being deallocated.")
     }
     
     var value: T {

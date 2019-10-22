@@ -30,7 +30,7 @@ public class Airplane {
     }
     
     deinit {
-//        print("Airplane instance with priority \(self.priority) is being deallocated.")
+        print("Airplane instance with code \(self.code) is being deallocated.")
     }
     
     init(code: String) {
@@ -90,9 +90,9 @@ public class Airplane {
             return ComparisonResult.orderedSame
         }
         
-        if (first.priority == second.priority) {
+        if (first.code == second.code) {
             return ComparisonResult.orderedSame
-        } else if (first.priority < second.priority) {
+        } else if (first.code < second.code) {
             return ComparisonResult.orderedAscending
         } else {
             return ComparisonResult.orderedDescending
