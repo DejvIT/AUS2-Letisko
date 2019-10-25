@@ -86,10 +86,10 @@
 		320DC0D2234BADD900E67A5E /* PavlickoDavidAUS2-1 */ = {
 			isa = PBXGroup;
 			children = (
-				32D71BC123571E41002B871B /* Data */,
-				320DC0EB234BCF9E00E67A5E /* Structures */,
 				320DC0D3234BADD900E67A5E /* AppDelegate.swift */,
 				320DC0D5234BADD900E67A5E /* SceneDelegate.swift */,
+				32D71BC123571E41002B871B /* Data */,
+				320DC0EB234BCF9E00E67A5E /* Structures */,
 				320DC0E7234BCE8500E67A5E /* Model */,
 				320DC0E9234BCE9300E67A5E /* View */,
 				320DC0EA234BCE9700E67A5E /* Controller */,

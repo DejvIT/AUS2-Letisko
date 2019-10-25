@@ -75,7 +75,9 @@ class Generator {
         }
         
         print("Count of numbers in Splay tree = \(splayTree.getCount())")
+        print("Inorder of splay tree: \(splayTree.inOrder())")
         print("Count of numbers in the Array list = \(arrayNumbers.count)")
+        print("Inorder of array list: \(arrayNumbers.sorted())")
     }
     
     public func splayTreeInsert(loop: Int, progressBar: UIProgressView?) {

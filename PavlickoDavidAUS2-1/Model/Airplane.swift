@@ -16,7 +16,7 @@ public class Airplane {
     private let _arrivalTime: Int
     private let _flightPathAssigned: Int
     private let _departureTime: Int
-    private let _priority: Int
+    var _priority: Int
     
     init(creator: String, code: String, minLength: Int, arrivalTime: Int, flightPathAssigned: Int, departureTime: Int, priority: Int) {
         
@@ -93,6 +93,20 @@ public class Airplane {
         if (first.code == second.code) {
             return ComparisonResult.orderedSame
         } else if (first.code < second.code) {
+            return ComparisonResult.orderedAscending
+        } else {
+            return ComparisonResult.orderedDescending
+        }
+    }
+    
+    static let priorityComparator: Comparator = {
+        lhs, rhs in guard let first = lhs as? Airplane, let second = rhs as? Airplane else {
+            return ComparisonResult.orderedSame
+        }
+        
+        if (first.priority == second.priority) {
+            return ComparisonResult.orderedSame
+        } else if (first.priority < second.priority) {
             return ComparisonResult.orderedAscending
         } else {
             return ComparisonResult.orderedDescending

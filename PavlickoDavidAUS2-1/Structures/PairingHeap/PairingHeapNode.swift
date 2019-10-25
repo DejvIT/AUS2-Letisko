@@ -8,21 +8,21 @@
 
 import Foundation
 
-public class PairingHeapNode<T> {
+public class PairingHeapNode<T, K> {
     
     var _value: T
-    var _leftChild: PairingHeapNode<T>?
-    var _rightChild: PairingHeapNode<T>?
-    var _parent: PairingHeapNode<T>?
-    var _key: T
+    var _leftChild: PairingHeapNode<T, K>?
+    var _rightChild: PairingHeapNode<T, K>?
+    var _parent: PairingHeapNode<T, K>?
+    var _key: K
 
-    init(_ value: T,_ key: T) {
+    init(_ value: T,_ key: K) {
         self._value = value
         self._key = key
     }
     
     deinit {
-        print("Pairing heap node is being deallocated.")
+        print("Pairing heap node with value \(self.value) is being deallocated.")
     }
     
     var value: T {
@@ -31,25 +31,25 @@ public class PairingHeapNode<T> {
         }
     }
     
-    var key: T {
+    var key: K {
         get {
             return self._key
         }
     }
     
-    var left: PairingHeapNode<T>? {
+    var left: PairingHeapNode<T, K>? {
         get {
             return self._leftChild
         }
     }
     
-    var right: PairingHeapNode<T>? {
+    var right: PairingHeapNode<T, K>? {
         get {
             return self._rightChild
         }
     }
     
-    var parent: PairingHeapNode<T>? {
+    var parent: PairingHeapNode<T, K>? {
         get {
             return self._parent
         }

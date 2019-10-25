@@ -207,7 +207,7 @@ public class SplayTree<T> {
             
             }
             
-        } else if ((foundNode.left != nil && foundNode.right == nil) || (foundNode.left == nil && foundNode.right != nil)) {    //Has on subtree
+        } else if ((foundNode.left != nil && foundNode.right == nil) || (foundNode.left == nil && foundNode.right != nil)) {    //Has one subtree
             
             if (parent == nil) { //parent not found, foundNode is root
 
