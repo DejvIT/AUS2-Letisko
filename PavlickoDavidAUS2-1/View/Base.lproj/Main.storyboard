@@ -266,7 +266,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <segue destination="7rI-ud-Jwv" kind="show" id="afh-7e-SXK"/>
+                                            <segue destination="aAk-Ks-2rK" kind="show" id="zda-T0-sZW"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="112" id="cx9-IT-mYD">
@@ -391,7 +391,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <segue destination="7rI-ud-Jwv" kind="show" id="Yur-1N-Fm3"/>
+                                            <segue destination="yFs-cN-5dV" kind="show" id="QlK-Z5-nkG"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -422,21 +422,198 @@
             </objects>
             <point key="canvasLocation" x="1992.753623188406" y="-366.29464285714283"/>
         </scene>
-        <!--View Controller-->
+        <!--Nové lietadlo-->
         <scene sceneID="uZd-k6-qdf">
             <objects>
-                <viewController id="7rI-ud-Jwv" sceneMemberID="viewController">
+                <viewController id="7rI-ud-Jwv" customClass="FirstViewController" customModule="FRI_Airlines" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ovS-Cf-zo7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HQe-xG-VJT">
+                                <rect key="frame" x="31" y="167" width="352" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="organization"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i3u-xp-brG">
+                                <rect key="frame" x="31" y="231" width="352" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="organization"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t4L-Bc-lIE">
+                                <rect key="frame" x="31" y="295" width="352" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="organization"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jGj-CW-UWh">
+                                <rect key="frame" x="31" y="359" width="352" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="organization"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vloženie lietadla do systému" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFY-xc-dju">
+                                <rect key="frame" x="77" y="113" width="260" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" red="0.53333333329999999" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Výrobca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIn-xd-aoZ">
+                                <rect key="frame" x="31" y="147" width="352" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medzinárodný kód lietadla" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIg-8r-Sab">
+                                <rect key="frame" x="31" y="211" width="352" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minimálna potrebná dĺžka dráhy na vzlet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6z-rt-qnQ">
+                                <rect key="frame" x="31" y="275" width="352" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Čas odletu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4de-lD-dQB">
+                                <rect key="frame" x="31" y="339" width="352" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priorita" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edo-GI-upD">
+                                <rect key="frame" x="31" y="403" width="352" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvY-Al-KDW">
+                                <rect key="frame" x="83" y="507" width="248" height="72.5"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Pridať">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onAdd:" destination="7rI-ud-Jwv" eventType="touchUpInside" id="xRX-fT-CKK"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3V5-eS-nah">
+                                <rect key="frame" x="31" y="423" width="352" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="organization"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TFY-xc-dju" firstAttribute="top" secondItem="nna-57-vBi" secondAttribute="top" constant="25" id="6ZT-mZ-HNz"/>
+                            <constraint firstItem="TFY-xc-dju" firstAttribute="centerX" secondItem="nna-57-vBi" secondAttribute="centerX" id="6sz-IE-P3X"/>
+                            <constraint firstItem="o6z-rt-qnQ" firstAttribute="top" secondItem="i3u-xp-brG" secondAttribute="bottom" constant="10" id="8qV-Qu-9ky"/>
+                            <constraint firstItem="zvY-Al-KDW" firstAttribute="centerX" secondItem="nna-57-vBi" secondAttribute="centerX" id="8v8-xw-gG6"/>
+                            <constraint firstItem="RIn-xd-aoZ" firstAttribute="leading" secondItem="HQe-xG-VJT" secondAttribute="leading" id="CIf-Ec-Qew"/>
+                            <constraint firstItem="4de-lD-dQB" firstAttribute="leading" secondItem="jGj-CW-UWh" secondAttribute="leading" id="GYv-Ko-cRM"/>
+                            <constraint firstItem="3V5-eS-nah" firstAttribute="top" secondItem="Edo-GI-upD" secondAttribute="bottom" constant="6" id="HZg-TH-6J8"/>
+                            <constraint firstItem="o6z-rt-qnQ" firstAttribute="leading" secondItem="t4L-Bc-lIE" secondAttribute="leading" id="Hat-7I-eH2"/>
+                            <constraint firstItem="jGj-CW-UWh" firstAttribute="centerX" secondItem="t4L-Bc-lIE" secondAttribute="centerX" id="Hzq-kc-P9q"/>
+                            <constraint firstItem="zvY-Al-KDW" firstAttribute="height" secondItem="nna-57-vBi" secondAttribute="height" multiplier="0.1" id="OPf-qF-vPd"/>
+                            <constraint firstItem="i3u-xp-brG" firstAttribute="width" secondItem="HQe-xG-VJT" secondAttribute="width" id="QHU-eS-MyW"/>
+                            <constraint firstItem="Edo-GI-upD" firstAttribute="trailing" secondItem="3V5-eS-nah" secondAttribute="trailing" id="SwS-MH-uZU"/>
+                            <constraint firstItem="zvY-Al-KDW" firstAttribute="width" secondItem="nna-57-vBi" secondAttribute="width" multiplier="0.6" id="Ujj-C1-JgY"/>
+                            <constraint firstItem="RIn-xd-aoZ" firstAttribute="trailing" secondItem="HQe-xG-VJT" secondAttribute="trailing" id="WsX-Cq-F3x"/>
+                            <constraint firstItem="3V5-eS-nah" firstAttribute="centerX" secondItem="jGj-CW-UWh" secondAttribute="centerX" id="YRj-ow-a9a"/>
+                            <constraint firstItem="i3u-xp-brG" firstAttribute="top" secondItem="eIg-8r-Sab" secondAttribute="bottom" constant="6" id="bCx-bG-hcK"/>
+                            <constraint firstItem="eIg-8r-Sab" firstAttribute="trailing" secondItem="i3u-xp-brG" secondAttribute="trailing" id="bU8-wk-zfv"/>
+                            <constraint firstItem="t4L-Bc-lIE" firstAttribute="top" secondItem="o6z-rt-qnQ" secondAttribute="bottom" constant="6" id="dX3-Z4-7If"/>
+                            <constraint firstItem="3V5-eS-nah" firstAttribute="width" secondItem="jGj-CW-UWh" secondAttribute="width" id="dZg-yf-EjW"/>
+                            <constraint firstItem="t4L-Bc-lIE" firstAttribute="centerX" secondItem="i3u-xp-brG" secondAttribute="centerX" id="e2n-b4-uPb"/>
+                            <constraint firstItem="i3u-xp-brG" firstAttribute="centerX" secondItem="HQe-xG-VJT" secondAttribute="centerX" id="enO-ej-Xqa"/>
+                            <constraint firstItem="4de-lD-dQB" firstAttribute="top" secondItem="t4L-Bc-lIE" secondAttribute="bottom" constant="10" id="gUe-Ut-3dK"/>
+                            <constraint firstItem="4de-lD-dQB" firstAttribute="trailing" secondItem="jGj-CW-UWh" secondAttribute="trailing" id="hA7-pj-3Zb"/>
+                            <constraint firstItem="Edo-GI-upD" firstAttribute="leading" secondItem="3V5-eS-nah" secondAttribute="leading" id="hpR-Z7-eOC"/>
+                            <constraint firstItem="HQe-xG-VJT" firstAttribute="top" secondItem="RIn-xd-aoZ" secondAttribute="bottom" constant="6" id="i2r-QA-v1P"/>
+                            <constraint firstItem="jGj-CW-UWh" firstAttribute="top" secondItem="4de-lD-dQB" secondAttribute="bottom" constant="6" id="lrS-ay-4IV"/>
+                            <constraint firstItem="Edo-GI-upD" firstAttribute="top" secondItem="jGj-CW-UWh" secondAttribute="bottom" constant="10" id="nmp-IV-C3H"/>
+                            <constraint firstItem="t4L-Bc-lIE" firstAttribute="width" secondItem="i3u-xp-brG" secondAttribute="width" id="nuN-cb-I8s"/>
+                            <constraint firstItem="eIg-8r-Sab" firstAttribute="top" secondItem="HQe-xG-VJT" secondAttribute="bottom" constant="10" id="oE7-df-wqt"/>
+                            <constraint firstItem="zvY-Al-KDW" firstAttribute="top" secondItem="3V5-eS-nah" secondAttribute="bottom" constant="50" id="oth-fG-2Jk"/>
+                            <constraint firstItem="HQe-xG-VJT" firstAttribute="width" secondItem="nna-57-vBi" secondAttribute="width" multiplier="0.85" id="pL9-4l-CbG"/>
+                            <constraint firstItem="o6z-rt-qnQ" firstAttribute="trailing" secondItem="t4L-Bc-lIE" secondAttribute="trailing" id="uiU-hE-4Jx"/>
+                            <constraint firstItem="eIg-8r-Sab" firstAttribute="leading" secondItem="i3u-xp-brG" secondAttribute="leading" id="ukr-DV-70r"/>
+                            <constraint firstItem="HQe-xG-VJT" firstAttribute="top" secondItem="TFY-xc-dju" secondAttribute="bottom" constant="30" id="x2z-I2-GjP"/>
+                            <constraint firstItem="jGj-CW-UWh" firstAttribute="width" secondItem="t4L-Bc-lIE" secondAttribute="width" id="yuL-CX-hzo"/>
+                            <constraint firstItem="HQe-xG-VJT" firstAttribute="centerX" secondItem="nna-57-vBi" secondAttribute="centerX" id="zYc-Gb-AeU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nna-57-vBi"/>
                     </view>
-                    <navigationItem key="navigationItem" id="LVG-SI-l52"/>
+                    <navigationItem key="navigationItem" title="Nové lietadlo" id="LVG-SI-l52"/>
+                    <connections>
+                        <outlet property="codeField" destination="i3u-xp-brG" id="3jB-6A-mYw"/>
+                        <outlet property="creatorField" destination="HQe-xG-VJT" id="gaa-du-wtz"/>
+                        <outlet property="departureTimeField" destination="jGj-CW-UWh" id="AyK-7v-njn"/>
+                        <outlet property="lengthField" destination="t4L-Bc-lIE" id="XZH-2k-1Td"/>
+                        <outlet property="priorityField" destination="3V5-eS-nah" id="E6u-XG-MIa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kH-WF-Dd7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3043" y="-544"/>
+            <point key="canvasLocation" x="3272" y="-563"/>
+        </scene>
+        <!--Hľadať-->
+        <scene sceneID="zlK-D0-awV">
+            <objects>
+                <viewController id="aAk-Ks-2rK" customClass="FourthViewController" customModule="FRI_Airlines" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rwU-DA-w6Q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vyhľadanie lietadla, podľa medzinárodného kódu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dai-pN-Kxa">
+                                <rect key="frame" x="0.0" y="113" width="414" height="48"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" red="0.53333333329999999" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medzinárodný kód" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhY-WU-wAq">
+                                <rect key="frame" x="31" y="171" width="352" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0BK-S4-HtS">
+                                <rect key="frame" x="31" y="191" width="352" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTE-QB-aBA">
+                                <rect key="frame" x="83" y="275" width="248" height="72.5"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Hľadať">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0BK-S4-HtS" firstAttribute="width" secondItem="6r5-rC-ReS" secondAttribute="width" multiplier="0.85" id="9Ua-nx-5up"/>
+                            <constraint firstItem="0BK-S4-HtS" firstAttribute="centerX" secondItem="6r5-rC-ReS" secondAttribute="centerX" id="Gbo-hg-aay"/>
+                            <constraint firstItem="MTE-QB-aBA" firstAttribute="width" secondItem="6r5-rC-ReS" secondAttribute="width" multiplier="0.6" id="JMO-me-G9H"/>
+                            <constraint firstItem="MTE-QB-aBA" firstAttribute="top" secondItem="0BK-S4-HtS" secondAttribute="bottom" constant="50" id="Myd-kO-ORR"/>
+                            <constraint firstItem="MTE-QB-aBA" firstAttribute="centerX" secondItem="6r5-rC-ReS" secondAttribute="centerX" id="Q4t-0X-wDX"/>
+                            <constraint firstItem="qhY-WU-wAq" firstAttribute="top" secondItem="dai-pN-Kxa" secondAttribute="bottom" constant="10" id="SMA-EC-Frg"/>
+                            <constraint firstItem="dai-pN-Kxa" firstAttribute="centerX" secondItem="6r5-rC-ReS" secondAttribute="centerX" id="ZG8-VS-lfy"/>
+                            <constraint firstItem="dai-pN-Kxa" firstAttribute="top" secondItem="6r5-rC-ReS" secondAttribute="top" constant="25" id="aVX-Ia-aKC"/>
+                            <constraint firstItem="qhY-WU-wAq" firstAttribute="trailing" secondItem="0BK-S4-HtS" secondAttribute="trailing" id="hMi-Nn-arT"/>
+                            <constraint firstItem="qhY-WU-wAq" firstAttribute="leading" secondItem="0BK-S4-HtS" secondAttribute="leading" id="kJk-np-Xmi"/>
+                            <constraint firstItem="0BK-S4-HtS" firstAttribute="top" secondItem="qhY-WU-wAq" secondAttribute="bottom" constant="6" id="nvz-5z-4Pl"/>
+                            <constraint firstItem="MTE-QB-aBA" firstAttribute="height" secondItem="6r5-rC-ReS" secondAttribute="height" multiplier="0.1" id="rnh-6P-VDb"/>
+                            <constraint firstItem="dai-pN-Kxa" firstAttribute="width" secondItem="6r5-rC-ReS" secondAttribute="width" id="v1a-g6-SvZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6r5-rC-ReS"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Hľadať" id="RoU-vH-h69"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K59-MQ-aST" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3008.6956521739135" y="-1217.4107142857142"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="EVy-2P-gWE">
@@ -496,6 +673,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p5b-W2-DDa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1992.753623188406" y="486.83035714285711"/>
+        </scene>
+        <!--Lietadlá-->
+        <scene sceneID="ONK-az-FTy">
+            <objects>
+                <viewController id="yFs-cN-5dV" customClass="SixthViewController" customModule="FRI_Airlines" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XvO-V8-Usn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="W1g-DS-D86">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="airplaneCell" rowHeight="144" id="1cq-HH-V9v" customClass="AirplaneTableViewCell" customModule="FRI_Airlines" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="144"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1cq-HH-V9v" id="uqI-nW-evT">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="144"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbW-Z0-bwZ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="144"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YbW-Z0-bwZ" firstAttribute="centerY" secondItem="uqI-nW-evT" secondAttribute="centerY" id="8Yc-Cy-Une"/>
+                                                <constraint firstItem="YbW-Z0-bwZ" firstAttribute="width" secondItem="uqI-nW-evT" secondAttribute="width" id="Uui-tm-0Xg"/>
+                                                <constraint firstItem="YbW-Z0-bwZ" firstAttribute="centerX" secondItem="uqI-nW-evT" secondAttribute="centerX" id="jxE-TM-qib"/>
+                                                <constraint firstItem="YbW-Z0-bwZ" firstAttribute="height" secondItem="uqI-nW-evT" secondAttribute="height" id="z8I-q8-ODd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="airplaneCell"/>
+                                        <connections>
+                                            <outlet property="test" destination="YbW-Z0-bwZ" id="AjR-y5-V78"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LJB-iU-DXe" firstAttribute="bottom" secondItem="W1g-DS-D86" secondAttribute="bottom" id="IDp-Yy-fTC"/>
+                            <constraint firstItem="LJB-iU-DXe" firstAttribute="trailing" secondItem="W1g-DS-D86" secondAttribute="trailing" id="cYb-qH-5ut"/>
+                            <constraint firstItem="W1g-DS-D86" firstAttribute="leading" secondItem="LJB-iU-DXe" secondAttribute="leading" id="huV-bo-gbK"/>
+                            <constraint firstItem="W1g-DS-D86" firstAttribute="top" secondItem="LJB-iU-DXe" secondAttribute="top" id="mDi-9Z-mbH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LJB-iU-DXe"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Lietadlá" id="IE4-eh-Cat"/>
+                    <connections>
+                        <outlet property="table" destination="W1g-DS-D86" id="GZW-Or-fcQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wAZ-Q3-8zX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3024.6376811594205" y="107.8125"/>
         </scene>
         <!--Generátor-->
         <scene sceneID="XlQ-Br-cwC">
@@ -858,6 +1095,6 @@
         <image name="list.dash" catalog="system" width="64" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bj6-D4-mdH"/>
+        <segue reference="q0P-jx-g4H"/>
     </inferredMetricsTieBreakers>
 </document>

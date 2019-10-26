@@ -169,29 +169,88 @@ public class PairingHeap<T, K> {
                 }
             }
             let parent = pivot.parent
-            if (comparator((parent?.value)!, node.value) == .orderedDescending) {
-                if (node.right != nil) {
-                    if (hops > 0) {
-                        node.parent?._rightChild = node.right
+            if (parent != nil) {
+                if (comparator((parent?.value)!, node.value) == .orderedDescending) {
+                    if (node.right != nil) {
+                        if (hops > 0) {
+                            node.parent?._rightChild = node.right
+                        } else {
+                            node.parent?._leftChild = node.right
+                        }
+                        node.right?._parent = node.parent
                     } else {
-                        node.parent?._leftChild = node.right
+                        if (hops > 0) {
+                            node.parent?._rightChild = nil
+                        } else {
+                            node.parent?._leftChild = nil
+                        }
                     }
-                    node.right?._parent = node.parent
-                } else {
-                    if (hops > 0) {
-                        node.parent?._rightChild = nil
-                    } else {
-                        node.parent?._leftChild = nil
-                    }
+                    node._parent = nil
+                    _ = self.merge(self.getRoot()!, node)
                 }
-                node._parent = nil
-                _ = self.merge(self.getRoot()!, node)
             }
         }
     }
     
     //MARK: - Decrease
     public func decrease(_ node: PairingHeapNode<T, K>) {
+        
+        if (node.left != nil) {
+            if (comparator(node.value, (node.left?.value)!) == .orderedDescending) {
+                
+                var forest: Queue<PairingHeap<T, K>> = Queue<PairingHeap<T, K>>()
+                forest.enqueue(PairingHeap(root: node, comparator: self.comparator))
+                
+                let parent = node.parent
+                let right = node.right
+                
+                var parentIsBrother = false
+                if (parent?.right != nil) {
+                    if (comparator((parent?.right?.value)!, node.value) == .orderedSame) {
+                        parentIsBrother = true
+                    }
+                }
+                
+                node._parent = nil
+                node._rightChild = nil
+                var pivot = node.left
+                node._leftChild = nil
+                
+                while (pivot != nil) {
+                    pivot?._parent = nil
+                    forest.enqueue(PairingHeap(root: pivot!, comparator: self.comparator))
+                    if (pivot?.right != nil) {
+                        pivot = pivot?.right
+                        pivot?.parent?._rightChild = nil
+                    } else {
+                        pivot?._parent = nil
+                        pivot = nil
+                    }
+                }
+                
+                while (!forest.isEmpty) {
+                    let heapA = forest.dequeue()
+                    
+                    if (forest.isEmpty) {
+                        
+                        if (parentIsBrother) {
+                            parent?._rightChild = heapA?.getRoot()
+                        } else {
+                            parent?._leftChild = heapA?.getRoot()
+                        }
+                        heapA?.getRoot()!._parent = parent
+                        
+                        heapA?.getRoot()?._rightChild = right
+                        right?._parent = heapA?.getRoot()
+                        
+                    } else {
+                        
+                        let heapB = forest.dequeue()
+                        forest.enqueue((heapA?.mergeTrees(heapA!, heapB!))!)
+                    }
+                }
+            }
+        }
         
     }
     
