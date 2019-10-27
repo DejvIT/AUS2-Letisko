@@ -195,63 +195,78 @@ public class PairingHeap<T, K> {
     //MARK: - Decrease
     public func decrease(_ node: PairingHeapNode<T, K>) {
         
-        if (node.left != nil) {
-            if (comparator(node.value, (node.left?.value)!) == .orderedDescending) {
-                
-                var forest: Queue<PairingHeap<T, K>> = Queue<PairingHeap<T, K>>()
-                forest.enqueue(PairingHeap(root: node, comparator: self.comparator))
-                
-                let parent = node.parent
-                let right = node.right
-                
-                var parentIsBrother = false
-                if (parent?.right != nil) {
-                    if (comparator((parent?.right?.value)!, node.value) == .orderedSame) {
-                        parentIsBrother = true
-                    }
+        var pivot = node.left
+        var consolidation = false
+        
+        while (pivot != nil) {
+            
+            if (comparator(node.value, (pivot?.value)!) == .orderedDescending) {
+                consolidation = true
+                break
+            }
+            
+            pivot = pivot?.right
+        }
+        
+        if consolidation {
+            
+            var forest: Queue<PairingHeap<T, K>> = Queue<PairingHeap<T, K>>()
+            forest.enqueue(PairingHeap(root: node, comparator: self.comparator))
+            
+            let parent = node.parent
+            let right = node.right
+            
+            var parentIsBrother = false
+            if (parent?.right != nil) {
+                if (comparator((parent?.right?.value)!, node.value) == .orderedSame) {
+                    parentIsBrother = true
                 }
-                
-                node._parent = nil
-                node._rightChild = nil
-                var pivot = node.left
-                node._leftChild = nil
-                
-                while (pivot != nil) {
+            }
+            
+            node._parent = nil
+            node._rightChild = nil
+            var pivot = node.left
+            node._leftChild = nil
+            
+            while (pivot != nil) {
+                pivot?._parent = nil
+                forest.enqueue(PairingHeap(root: pivot!, comparator: self.comparator))
+                if (pivot?.right != nil) {
+                    pivot = pivot?.right
+                    pivot?.parent?._rightChild = nil
+                } else {
                     pivot?._parent = nil
-                    forest.enqueue(PairingHeap(root: pivot!, comparator: self.comparator))
-                    if (pivot?.right != nil) {
-                        pivot = pivot?.right
-                        pivot?.parent?._rightChild = nil
-                    } else {
-                        pivot?._parent = nil
-                        pivot = nil
-                    }
+                    pivot = nil
                 }
+            }
+            
+            while (!forest.isEmpty) {
+                let heapA = forest.dequeue()
                 
-                while (!forest.isEmpty) {
-                    let heapA = forest.dequeue()
+                if (forest.isEmpty) {
                     
-                    if (forest.isEmpty) {
-                        
+                    if (parent == nil) {
+                        self._root = heapA?.getRoot()
+                    } else {
+
                         if (parentIsBrother) {
                             parent?._rightChild = heapA?.getRoot()
                         } else {
                             parent?._leftChild = heapA?.getRoot()
                         }
-                        heapA?.getRoot()!._parent = parent
                         
+                        heapA?.getRoot()!._parent = parent
                         heapA?.getRoot()?._rightChild = right
                         right?._parent = heapA?.getRoot()
-                        
-                    } else {
-                        
-                        let heapB = forest.dequeue()
-                        forest.enqueue((heapA?.mergeTrees(heapA!, heapB!))!)
                     }
+                    
+                } else {
+                    
+                    let heapB = forest.dequeue()
+                    forest.enqueue((heapA?.mergeTrees(heapA!, heapB!))!)
                 }
             }
         }
-        
     }
     
     //MARK: - Level order

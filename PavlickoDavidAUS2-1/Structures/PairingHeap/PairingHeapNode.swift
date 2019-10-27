@@ -22,7 +22,7 @@ public class PairingHeapNode<T, K> {
     }
     
     deinit {
-        print("Pairing heap node with value \(self.value) is being deallocated.")
+        print("Pairing heap node is being deallocated.")
     }
     
     var value: T {

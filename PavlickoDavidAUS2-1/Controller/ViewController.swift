@@ -51,36 +51,29 @@ class ViewController: UIViewController {
         let loadingSpinner = Spinner.purpleBackground(onView: self.view)
         DispatchQueue.global(qos: .background).async {
 
-            self.generator.pairingHeapGen(loop: 100000, insert: 5, change: 2, delete: 1, progressBar: nil)
-//            self.generator.pairingHeapInsert(loop: 1000000, progressBar: nil)
-//            self.generator.pairingHeapChange(loop: 10000, progressBar: nil)
+            self.generator.pairingHeapGen(loop: 100000, insert: 3, change: 3, delete: 3, progressBar: nil)
             
-//            let pairingHeap: PairingHeap<Airplane, String> = PairingHeap<Airplane, String>(Airplane.priorityComparator)
-//            let ap3 = Airplane(creator: "FRI", code: "FRI01", minLength: 1000, arrivalTime: 5, flightPathAssigned: 2, departureTime: 6, priority: 3)
-//            let ap5 = Airplane(creator: "FRI", code: "FRI02", minLength: 1000, arrivalTime: 5, flightPathAssigned: 2, departureTime: 6, priority: 5)
-//            _ = pairingHeap.insert(ap3, key: ap3.code)
-//            _ = pairingHeap.insert(ap5, key: ap5.code)
-//            let pairingHeap2: PairingHeap<Airplane, String> = PairingHeap<Airplane, String>(Airplane.priorityComparator)
-//            let ap4 = Airplane(creator: "FRI", code: "FRI03", minLength: 1000, arrivalTime: 5, flightPathAssigned: 2, departureTime: 6, priority: 4)
-//            let ap6 = Airplane(creator: "FRI", code: "FRI04", minLength: 1000, arrivalTime: 5, flightPathAssigned: 2, departureTime: 6, priority: 6)
-//            let test = pairingHeap2.insert(ap4, key: ap4.code)
-//            _ = pairingHeap2.insert(ap6, key: ap6.code)
-//
-//            _ = pairingHeap.mergeTrees(pairingHeap, pairingHeap2)
-//            let ap10 = Airplane(creator: "FRI", code: "FRI05", minLength: 1000, arrivalTime: 5, flightPathAssigned: 2, departureTime: 6, priority: 10)
-//            _ = pairingHeap.insert(ap10, key: ap10.code)
-//
-//            test.value._priority = 20
+//            let pairingHeap: PairingHeap<Int, Int> = PairingHeap<Int, Int>(Int.comparator)
+//            let test3 = pairingHeap.insert(14, key: -1)
+//            _ = pairingHeap.insert(12, key: -1)
+//            _ = pairingHeap.insert(0, key: -1)
+//            _ = pairingHeap.insert(5, key: -1)
+//            let test2 = pairingHeap.insert(5, key: -1)
+//            let test = pairingHeap.insert(2, key: -1)
+//            _ = pairingHeap.insert(0, key: -1)
+//            
+//            test._value = 14
 //            pairingHeap.decrease(test)
+//            
+//            test2._value = 2
+//            pairingHeap.increase(test2)
+//            
+//            test3._value = 22
+//            pairingHeap.decrease(test3)
 //
-//            pairingHeap.delete()
-//            pairingHeap.delete()
-//            pairingHeap.delete()
-//            pairingHeap.delete()
-//            pairingHeap.delete()
 //            print("\(pairingHeap.getCount())")
-            
-            print(self.generator.pairingHeap as Any)
+//            
+//            print(self.generator.pairingHeap as Any)
             
             DispatchQueue.main.async {
                 Spinner.removeSpinner(spinner: loadingSpinner)

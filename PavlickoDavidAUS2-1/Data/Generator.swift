@@ -146,73 +146,82 @@ class Generator {
     
     public func pairingHeapGen(loop: Int, insert: Int, change: Int, delete: Int, progressBar: UIProgressView?) {
 
-    var loop = loop
-    let hundreth: Int = Int(Double(loop) / Double(100))
-    let insertRatio: Double = Double(insert) / (Double(insert) + Double(change) + Double(delete))
-    let changeRatio: Double = Double(change) / (Double(insert) + Double(change) + Double(delete))
-    let deleteRatio: Double = Double(delete) / (Double(insert) + Double(change) + Double(delete))
-    
-    while loop > 0 {
-        loop -= 1
+        var loop = loop
+        let hundreth: Int = Int(Double(loop) / Double(100))
+        let insertRatio: Double = Double(insert) / (Double(insert) + Double(change) + Double(delete))
+        let changeRatio: Double = Double(change) / (Double(insert) + Double(change) + Double(delete))
+        let deleteRatio: Double = Double(delete) / (Double(insert) + Double(change) + Double(delete))
         
-        if hundreth > 0 {
-            if loop % hundreth == 0 && progressBar != nil {
-                DispatchQueue.main.async {
-                    progressBar?.progress += 0.01
+        while loop > 0 {
+            loop -= 1
+            
+            if hundreth > 0 {
+                if loop % hundreth == 0 && progressBar != nil {
+                    DispatchQueue.main.async {
+                        progressBar?.progress += 0.01
+                    }
                 }
             }
-        }
-        
-        let random: Double = Double.random(in: 0...1)
-        if (random <= insertRatio) {
-
-            let randomNumber = Int.random(in: 0 ... loop*4)
-            print("\(loop + 1).) 😊 Inserting number \(randomNumber) 🤪")
-            arrayPNodes.append(pairingHeap.insert(randomNumber, key: -1))
             
-        } else if (random <= (insertRatio + changeRatio)) {
-            
-            if (arrayPNodes.count > 0) {
+            let random: Double = Double.random(in: 0...1)
+            if (random <= insertRatio) {
 
-                let randomNode = arrayPNodes.randomElement()
                 let randomNumber = Int.random(in: 0 ... loop*4)
+                print("\(loop + 1).) 😊 Inserting number \(randomNumber) 🤪")
+                arrayPNodes.append(pairingHeap.insert(randomNumber, key: -1))
                 
-                if (randomNode!.value < randomNumber) {
-                    print("\(loop + 1).) Decreasing from \(String(describing: randomNode?.value)) to \(randomNumber)")
-                    randomNode?._value = randomNumber
-                    pairingHeap.decrease(randomNode!)
-                } else {
-                    print("\(loop + 1).) Increasing from \(String(describing: randomNode?.value)) to \(randomNumber)")
-                    randomNode?._value = randomNumber
-                    pairingHeap.increase(randomNode!)
-                }
-            } else {
-                loop += 1
-            }
-            
-            
-        } else if (random <= (insertRatio + changeRatio + deleteRatio)) {
-            
-            if (arrayPNodes.count > 0) {
+            } else if (random <= (insertRatio + changeRatio)) {
+                
+                if (arrayPNodes.count > 0) {
 
-                let randomIndex = Int.random(in: 0...arrayPNodes.count - 1)
-                let randomNode = arrayPNodes[randomIndex]
-                arrayPNodes.remove(at: randomIndex)
-                print("\(loop + 1).) 😭 Deleting number \(pairingHeap.getRoot()!.value)) 😩")
-                randomNode._value = -1
-                pairingHeap.deleteNode(randomNode)
+                    let randomNode = arrayPNodes.randomElement()
+                    let randomNumber = Int.random(in: 0 ... pairingHeap.getCount() * 4)
+                    
+                    if (randomNode!.value < randomNumber) {
+                        print("\(loop + 1).) Decreasing from \(String(describing: randomNode?.value)) to \(randomNumber)")
+                        randomNode?._value = randomNumber
+                        pairingHeap.decrease(randomNode!)
+                    } else {
+                        print("\(loop + 1).) Increasing from \(String(describing: randomNode?.value)) to \(randomNumber)")
+                        randomNode?._value = randomNumber
+                        pairingHeap.increase(randomNode!)
+                    }
+                } else {
+                    loop += 1
+                }
+                
+                
+            } else if (random <= (insertRatio + changeRatio + deleteRatio)) {
+                
+                if (arrayPNodes.count > 0) {
+
+                    let randomIndex = Int.random(in: 0...arrayPNodes.count - 1)
+                    let randomNode = arrayPNodes[randomIndex]
+                    arrayPNodes.remove(at: randomIndex)
+                    print("\(loop + 1).) 😭 Deleting number \(randomNode.value) 😩")
+                    randomNode._value = -1
+                    pairingHeap.deleteNode(randomNode)
+                    
+                } else {
+                    loop += 1
+                }
                 
             } else {
-                loop += 1
+                print("Some shit has happened! 😩😭😡")
             }
-            
-        } else {
-            print("Some shit has happened! 😩😭😡")
         }
-    }
-    
-    print("Count of numbers in Pairing heap = \(pairingHeap.getCount())")
-    print("Count of numbers in the Array list = \(arrayPNodes.count)")
+        
+        var min = Int.max / 2
+        for node in arrayPNodes {
+            if node.value < min {
+                min = node.value
+            }
+        }
+        print("Count of numbers in Pairing heap = \(pairingHeap.getCount())")
+        print("Count of numbers in the Array list = \(arrayPNodes.count)")
+        print("The highest priority in heap is \(pairingHeap.getRoot()!._value)")
+        print("The highest priority in array is \(min)")
+            
     }
     
     public func pairingHeapInsert(loop: Int, progressBar: UIProgressView?) {
@@ -223,9 +232,12 @@ class Generator {
         while loop > 0 {
             loop -= 1
             
-            if loop % hundreth == 0 && progressBar != nil {
-                DispatchQueue.main.async {
-                    progressBar?.progress += 0.01
+            if (hundreth > 0) {
+
+                if loop % hundreth == 0 && progressBar != nil {
+                    DispatchQueue.main.async {
+                        progressBar?.progress += 0.01
+                    }
                 }
             }
             
