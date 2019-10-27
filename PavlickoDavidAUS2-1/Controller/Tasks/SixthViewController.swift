@@ -38,7 +38,12 @@ class SixthViewController: UIViewController, UITableViewDataSource, UITableViewD
         let currentAirplaneArray = airport.airplanes.inOrder()
         let airplaneAtRow = currentAirplaneArray[indexPath.row]
         
-        cell.test.text = airplaneAtRow.code
+        cell.number.text = "\(indexPath.row + 1).)"
+        cell.code.text = airplaneAtRow.code
+        cell.creator.text = airplaneAtRow.creator
+        cell.arrival.text = "\(airplaneAtRow.arrivalTime)"
+        cell.departure.text = "\(airplaneAtRow.departureTime)"
+        cell.priority.text = "\(airplaneAtRow.priority)"
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clear

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class FirstSecondViewController: UIViewController {
     
     var airport = Airport.shared
     

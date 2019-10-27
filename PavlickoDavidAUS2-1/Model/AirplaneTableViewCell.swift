@@ -10,7 +10,12 @@ import UIKit
 
 class AirplaneTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var test: UILabel!
+    @IBOutlet weak var number: UILabel!
+    @IBOutlet weak var code: UILabel!
+    @IBOutlet weak var creator: UILabel!
+    @IBOutlet weak var arrival: UILabel!
+    @IBOutlet weak var departure: UILabel!
+    @IBOutlet weak var priority: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

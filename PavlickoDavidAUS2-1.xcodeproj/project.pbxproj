@@ -21,7 +21,7 @@
 		323975B6235B90D500DEA94E /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323975B5235B90D500DEA94E /* LinkedList.swift */; };
 		323975B8235B916500DEA94E /* LinkedListNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323975B7235B916500DEA94E /* LinkedListNode.swift */; };
 		32445F4D2364D23B0045F578 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32445F4C2364D23B0045F578 /* Airport.swift */; };
-		32445F502364DF8C0045F578 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32445F4F2364DF8C0045F578 /* FirstViewController.swift */; };
+		32445F502364DF8C0045F578 /* FirstSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32445F4F2364DF8C0045F578 /* FirstSecondViewController.swift */; };
 		32445F522364E79A0045F578 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32445F512364E79A0045F578 /* FourthViewController.swift */; };
 		32445F542364EBCC0045F578 /* SixthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32445F532364EBCC0045F578 /* SixthViewController.swift */; };
 		32445F582364F2810045F578 /* AirplaneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32445F572364F2810045F578 /* AirplaneTableViewCell.swift */; };
@@ -33,6 +33,7 @@
 		32C06048235C2E7A008B28ED /* PairingHeapNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C06047235C2E7A008B28ED /* PairingHeapNode.swift */; };
 		32C0604A235C2E84008B28ED /* PairingHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C06049235C2E84008B28ED /* PairingHeap.swift */; };
 		32D71BC523571E71002B871B /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D71BC423571E71002B871B /* Generator.swift */; };
+		32FC9F632365BA52008794FA /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FC9F622365BA52008794FA /* ThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +53,7 @@
 		323975B5235B90D500DEA94E /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		323975B7235B916500DEA94E /* LinkedListNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedListNode.swift; sourceTree = "<group>"; };
 		32445F4C2364D23B0045F578 /* Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
-		32445F4F2364DF8C0045F578 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		32445F4F2364DF8C0045F578 /* FirstSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSecondViewController.swift; sourceTree = "<group>"; };
 		32445F512364E79A0045F578 /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		32445F532364EBCC0045F578 /* SixthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixthViewController.swift; sourceTree = "<group>"; };
 		32445F572364F2810045F578 /* AirplaneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirplaneTableViewCell.swift; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 		32C06047235C2E7A008B28ED /* PairingHeapNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingHeapNode.swift; sourceTree = "<group>"; };
 		32C06049235C2E84008B28ED /* PairingHeap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingHeap.swift; sourceTree = "<group>"; };
 		32D71BC423571E71002B871B /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
+		32FC9F622365BA52008794FA /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,9 +184,10 @@
 		32445F4E2364DF700045F578 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
-				32445F4F2364DF8C0045F578 /* FirstViewController.swift */,
+				32445F4F2364DF8C0045F578 /* FirstSecondViewController.swift */,
 				32445F512364E79A0045F578 /* FourthViewController.swift */,
 				32445F532364EBCC0045F578 /* SixthViewController.swift */,
+				32FC9F622365BA52008794FA /* ThirdViewController.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -303,11 +306,12 @@
 				32D71BC523571E71002B871B /* Generator.swift in Sources */,
 				32445F542364EBCC0045F578 /* SixthViewController.swift in Sources */,
 				320DC0D6234BADD900E67A5E /* SceneDelegate.swift in Sources */,
-				32445F502364DF8C0045F578 /* FirstViewController.swift in Sources */,
+				32445F502364DF8C0045F578 /* FirstSecondViewController.swift in Sources */,
 				323975AE235B237900DEA94E /* History.swift in Sources */,
 				323975B6235B90D500DEA94E /* LinkedList.swift in Sources */,
 				32445F582364F2810045F578 /* AirplaneTableViewCell.swift in Sources */,
 				320DC0F2234BD73300E67A5E /* Airplane.swift in Sources */,
+				32FC9F632365BA52008794FA /* ThirdViewController.swift in Sources */,
 				325304EF235A141A00135376 /* GeneratorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
