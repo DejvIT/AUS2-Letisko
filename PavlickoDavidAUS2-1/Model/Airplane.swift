@@ -13,18 +13,19 @@ public class Airplane {
     private let _creator: String
     private let _code: String   //unique identifier
     private let _minLength: Int
-    private let _arrivalTime: Int
-    private let _flightPathAssigned: Int
-    private let _departureTime: Int
-    var _priority: Int
+    private let _arrivalTime: String
+    var _departureRequest: String?
+    var _departureTime: String?
+    var _priority: Int?
+    var _runway: Runway?
     
-    init(creator: String, code: String, minLength: Int, arrivalTime: Int, flightPathAssigned: Int, departureTime: Int, priority: Int) {
+    init(creator: String, code: String, minLength: Int, arrivalTime: String, departureRequest: String?, departureTime: String?, priority: Int?) {
         
         self._creator = creator
         self._code = code
         self._minLength = minLength
         self._arrivalTime = arrivalTime
-        self._flightPathAssigned = flightPathAssigned
+        self._departureRequest = departureRequest
         self._departureTime = departureTime
         self._priority = priority
     }
@@ -37,9 +38,9 @@ public class Airplane {
         self._creator = ""
         self._code = code
         self._minLength = 0
-        self._arrivalTime = 0
-        self._flightPathAssigned = 0
-        self._departureTime = 0
+        self._arrivalTime = "29.10.2019 12:00"
+        self._departureRequest = "29.10.2019 12:00"
+        self._departureTime = "29.10.2019 12:00"
         self._priority = 0
     }
     
@@ -61,25 +62,25 @@ public class Airplane {
         }
     }
     
-    var arrivalTime: Int {
+    var arrivalTime: String {
         get {
             return self._arrivalTime
         }
     }
     
-    var flightDepartureTime: Int {
+    var departureRequest: String? {
         get {
-            return self._flightPathAssigned
+            return self._departureRequest
         }
     }
     
-    var departureTime: Int {
+    var departureTime: String? {
         get {
             return self._departureTime
         }
     }
     
-    var priority: Int {
+    var priority: Int? {
         get {
             return self._priority
         }
@@ -106,11 +107,17 @@ public class Airplane {
         
         if (first.priority == second.priority) {
             return ComparisonResult.orderedSame
-        } else if (first.priority < second.priority) {
+        } else if (first.priority! < second.priority!) {
             return ComparisonResult.orderedAscending
         } else {
             return ComparisonResult.orderedDescending
         }
+    }
+    
+    public func toString() -> String {
+        
+        return "Lietadlo \(self.code), \(self.creator) s požadovanou dĺžkou dráhy \(self.minLength)m pristalo v čase \(self.arrivalTime), požiadavka na odlet v čase: \(self.departureRequest ?? "-"), priorita: \(self.priority ?? -1)"
+        
     }
     
 }

@@ -8,6 +8,8 @@
 
 import UIKit
 
+var myIndex = 0
+
 class SixthViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var airport = Airport.shared
@@ -26,7 +28,7 @@ class SixthViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 0.2 * table.bounds.height
+        return 0.15 * table.bounds.height
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,16 +42,20 @@ class SixthViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         cell.number.text = "\(indexPath.row + 1).)"
         cell.code.text = airplaneAtRow.code
-        cell.creator.text = airplaneAtRow.creator
-        cell.arrival.text = "\(airplaneAtRow.arrivalTime)"
-        cell.departure.text = "\(airplaneAtRow.departureTime)"
-        cell.priority.text = "\(airplaneAtRow.priority)"
+        cell.airplaneDescription.text = airplaneAtRow.toString()
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clear
         
         cell.selectedBackgroundView = backgroundView
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        myIndex = indexPath.row
+        performSegue(withIdentifier: "airplaneDetailSegue", sender: self)
+        
     }
 
 }

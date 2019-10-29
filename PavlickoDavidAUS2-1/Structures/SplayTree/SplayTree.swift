@@ -31,12 +31,12 @@ public class SplayTree<T> {
     }
     
     //MARK: - Insert
-    public func insert(_ newItem: T) -> Bool {
+    public func insert(_ newItem: T) -> T? {
         
         guard let root = self._root else {
             self._root = SplayNode(newItem)
             _count += 1
-            return true
+            return newItem
         }
         
         var pivot = root
@@ -45,7 +45,7 @@ public class SplayTree<T> {
             
             switch (comparator(newItem, pivot.value)) {
             case .orderedSame:
-                return false
+                return nil
             case .orderedAscending:
                 if (pivot.left == nil) {
                     pivot._leftChild = SplayNode(newItem)
@@ -53,9 +53,9 @@ public class SplayTree<T> {
                     _count += 1
 
                     // Splaying the new node to the top of the tree
-//                    self.splay(node: pivot.left!)
+                    self.splay(node: pivot.left!)
                     
-                    return true
+                    return newItem
                 } else {
                     pivot = pivot.left!
                 }
@@ -66,14 +66,14 @@ public class SplayTree<T> {
                     _count += 1
                     
                     // Splaying the new node to the top of the tree
-//                    self.splay(node: pivot.right!)
+                    self.splay(node: pivot.right!)
                     
-                    return true
+                    return newItem
                 } else {
                     pivot = pivot.right!
                 }
             default:
-                return false
+                return nil
             }
         }
     }
@@ -135,7 +135,7 @@ public class SplayTree<T> {
     }
     
     //MARK: - Search
-    public func search(_ item: T, delete: Bool) -> SplayNode<T>? {
+    public func search(_ item: T, delete: Bool, closest: Bool) -> SplayNode<T>? {
         
         guard var pivot = self._root else {
             return nil
@@ -154,7 +154,11 @@ public class SplayTree<T> {
                     if (!delete) {
                         self.splay(node: pivot)
                     }
-                    return nil
+                    if (closest) {
+                        return pivot
+                    } else {
+                        return nil
+                    }
                 } else {
                     pivot = pivot.left!
                 }
@@ -162,6 +166,9 @@ public class SplayTree<T> {
                 if (pivot.right == nil) {
                     if (!delete) {
                         self.splay(node: pivot)
+                    }
+                    if (closest) {
+                        return pivot.right
                     }
                     return nil
                 } else {
@@ -176,7 +183,7 @@ public class SplayTree<T> {
     //MARK: - Delete
     public func delete(_ item: T) -> Bool {
         
-        guard let foundNode = self.search(item, delete: true) else {
+        guard let foundNode = self.search(item, delete: true, closest: false) else {
             return false
         }
 

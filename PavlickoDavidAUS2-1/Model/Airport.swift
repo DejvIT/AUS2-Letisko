@@ -12,22 +12,32 @@ public class Airport {
     
     static let shared = Airport()
     
-    var _time: Int
-    var arrivals: Array<Airplane> = Array()
-    var departures: Array<Int> = Array() //TODO class Departure
-    var airplanes: SplayTree<Airplane> = SplayTree<Airplane>(Airplane.comparator)
+    var _time: DateTime
+    var arrivals: Array<String> = Array()
+    var airplanes: SplayTree<Airplane>! = SplayTree<Airplane>(Airplane.comparator)
+    var runwayTypes: SplayTree<RunwayType>! = SplayTree<RunwayType>(RunwayType.comparator)
+    var allRunways: SplayTree<Runway>! = SplayTree<Runway>(Runway.comparator)
+    var airplanesInAir: SplayTree<Airplane>! = SplayTree<Airplane>(Airplane.comparator)
     
     init() {
-        self._time = 0
+        self._time = DateTime(day: 29, month: 19, year: 2019, hour: 12, minute: 00)
+        let runway1 = runwayTypes.insert(RunwayType(1000))
+        _ = allRunways.insert(runway1!.addEmptyRunway(allRunways.getCount() + 1))
+        let runway2 = runwayTypes.insert(RunwayType(2000))
+        _ = allRunways.insert(runway2!.addEmptyRunway(allRunways.getCount() + 1))
+        _ = allRunways.insert(runway2!.addEmptyRunway(allRunways.getCount() + 1))
+        _ = allRunways.insert(runway2!.addEmptyRunway(allRunways.getCount() + 1))
+        let runway3 = runwayTypes.insert(RunwayType(3000))
+        _ = allRunways.insert(runway3!.addEmptyRunway(allRunways.getCount() + 1))
     }
     
-    var time: Int {
-        return self._time
+    var time: String {
+        return self._time.dateToString()
     }
     
     public func addAirplane(_ airplane: Airplane) -> Airplane? {
         
-        if (airplanes.insert(airplane)) {
+        if (airplanes.insert(airplane) != nil) {
             return airplane
         } else {
             return nil
@@ -35,9 +45,9 @@ public class Airport {
         
     }
     
-    public func arrival(_ airplane: Airplane) -> Array<Airplane> {
+    public func addArrival(_ airplane: Airplane) -> Array<String> {
         
-        arrivals.append(airplane)
+        arrivals.append("\(arrivals.count + 1).) \(airplane.toString())")
         return self.arrivals
     }
 }

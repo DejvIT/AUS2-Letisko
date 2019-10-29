@@ -11,6 +11,8 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
+    var airport = Airport.shared
+    
     @IBOutlet weak var firstView: UIView!
     @IBOutlet weak var firstCircle: UIView!
     
@@ -91,5 +93,14 @@ class TableViewController: UITableViewController {
         sixthCircle.layer.borderColor = UIColor.black.cgColor
         sixthCircle.layer.borderWidth = 2
         sixthCircle.layer.cornerRadius = 20
+        
+        timeButton.setTitle(airport.time, for: .normal)
     }
+    
+    @IBOutlet weak var timeButton: UIButton!
+    @IBAction func onTime(_ sender: UIButton) {
+        airport._time.addTime()
+        timeButton.setTitle(airport.time, for: .normal)
+    }
+    
 }

@@ -14,8 +14,8 @@ class Generator {
     static let shared = Generator()
     
     var splayTree: SplayTree<Int>! = SplayTree<Int>(Int.comparator)
-    var pairingHeap: PairingHeap<Int, Int>! = PairingHeap<Int, Int>(Int.comparator)
-    var arrayPNodes : Array<PairingHeapNode<Int, Int>> = Array()
+    var pairingHeap: PairingHeap<Int>! = PairingHeap<Int>(Int.comparator)
+    var arrayPNodes : Array<PairingHeapNode<Int>> = Array()
     
     public func splayTree(loop: Int, insert: Int, search: Int, delete: Int, progressBar: UIProgressView?) {
 
@@ -40,7 +40,7 @@ class Generator {
 
                 let randomNumber = Int.random(in: 0 ... loop*4)
                 
-                if (splayTree.insert(randomNumber)) {
+                if (splayTree.insert(randomNumber) != nil) {
 
                     print("\(loop + 1).) 😊 Inserting number \(randomNumber) 🤪")
                     arrayNumbers.append(randomNumber)
@@ -52,7 +52,7 @@ class Generator {
                 
                 let randomNumber = Int.random(in: 0 ... loop*4)
                 print("\(loop + 1).) 😎 Searching number \(String(describing: randomNumber)) 😂")
-                _ = splayTree.search(randomNumber, delete: false)
+                _ = splayTree.search(randomNumber, delete: false, closest: false)
                 
             } else if (random <= (insertRatio + searchRatio + deleteRatio)) {
                 
@@ -118,7 +118,7 @@ class Generator {
                 
             let randomNumber = Int.random(in: 0 ... loop*4)
             print("\(loop + 1).) 😎 Trying to search number \(randomNumber)")
-            _ = splayTree.search(randomNumber, delete: false)
+            _ = splayTree.search(randomNumber, delete: false, closest: false)
 
         }
     }
@@ -168,7 +168,7 @@ class Generator {
 
                 let randomNumber = Int.random(in: 0 ... loop*4)
                 print("\(loop + 1).) 😊 Inserting number \(randomNumber) 🤪")
-                arrayPNodes.append(pairingHeap.insert(randomNumber, key: -1))
+                arrayPNodes.append(pairingHeap.insert(randomNumber))
                 
             } else if (random <= (insertRatio + changeRatio)) {
                 
@@ -217,10 +217,13 @@ class Generator {
                 min = node.value
             }
         }
+        
         print("Count of numbers in Pairing heap = \(pairingHeap.getCount())")
         print("Count of numbers in the Array list = \(arrayPNodes.count)")
-        print("The highest priority in heap is \(pairingHeap.getRoot()!._value)")
-        print("The highest priority in array is \(min)")
+        if pairingHeap.getRoot() != nil {
+            print("The highest priority in heap is \(pairingHeap.getRoot()!._value)")
+            print("The highest priority in array is \(min)")
+        }
             
     }
     
@@ -243,7 +246,7 @@ class Generator {
             
             let randomNumber = Int.random(in: 0 ... loop * 4)
             print("\(loop + 1).) 😊 Trying to insert number \(randomNumber)")
-            arrayPNodes.append(pairingHeap.insert(randomNumber, key: -1))
+            arrayPNodes.append(pairingHeap.insert(randomNumber))
         }
     }
     

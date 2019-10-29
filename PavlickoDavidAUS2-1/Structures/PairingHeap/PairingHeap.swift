@@ -8,17 +8,17 @@
 
 import Foundation
 
-public class PairingHeap<T, K> {
+public class PairingHeap<T> {
 
     private let comparator: Comparator
-    public private(set)var _root: PairingHeapNode<T, K>?
+    public private(set)var _root: PairingHeapNode<T>?
     private var _count: Int = 0
   
     public init(_ comparator: @escaping Comparator) {
         self.comparator = comparator
     }
     
-    public init(root: PairingHeapNode<T, K>, comparator: @escaping Comparator) {
+    public init(root: PairingHeapNode<T>, comparator: @escaping Comparator) {
         self._root = root
         self.comparator = comparator
         self._count = 1
@@ -32,7 +32,7 @@ public class PairingHeap<T, K> {
         return self._count
     }
   
-    public func getRoot() -> PairingHeapNode<T, K>? {
+    public func getRoot() -> PairingHeapNode<T>? {
         return self._root
     }
     
@@ -42,9 +42,9 @@ public class PairingHeap<T, K> {
     }
     
     //MARK: - Insert
-    public func insert(_ newItem: T, key: K) -> PairingHeapNode<T, K> {
+    public func insert(_ newItem: T) -> PairingHeapNode<T> {
         
-        let newNode = PairingHeapNode(newItem, key)
+        let newNode = PairingHeapNode(newItem)
         
         guard let root = self._root else {
             self._root = newNode
@@ -58,7 +58,7 @@ public class PairingHeap<T, K> {
     }
     
     //MARK: - Merge
-    public func merge(_ nodeA: PairingHeapNode<T, K>,_ nodeB: PairingHeapNode<T, K>) -> PairingHeapNode<T, K>? {
+    public func merge(_ nodeA: PairingHeapNode<T>,_ nodeB: PairingHeapNode<T>) -> PairingHeapNode<T>? {
         
         if (comparator(nodeA.value, nodeB.value) == .orderedAscending || comparator(nodeA.value, nodeB.value) == .orderedSame) {
             
@@ -98,7 +98,7 @@ public class PairingHeap<T, K> {
     }
     
     //MARK: - Merge Trees
-    public func mergeTrees(_ heapA: PairingHeap<T, K>,_ heapB: PairingHeap<T, K>) -> PairingHeap<T, K>? {
+    public func mergeTrees(_ heapA: PairingHeap<T>,_ heapB: PairingHeap<T>) -> PairingHeap<T>? {
         
         _ = merge(heapA.getRoot()!, heapB.getRoot()!)
         heapA._count += heapB.getCount()
@@ -113,7 +113,7 @@ public class PairingHeap<T, K> {
             self._root = nil
         } else {
             var pivot = self._root?.left
-            var forest: Queue<PairingHeap<T, K>> = Queue<PairingHeap<T, K>>()
+            var forest: Queue<PairingHeap<T>> = Queue<PairingHeap<T>>()
             self._root!._leftChild = nil
             
             while (pivot != nil) {
@@ -145,13 +145,13 @@ public class PairingHeap<T, K> {
         }
     }
     
-    public func deleteNode(_ node: PairingHeapNode<T, K>) {
+    public func deleteNode(_ node: PairingHeapNode<T>) {
         self.increase(node)
         self.delete()
     }
     
     //MARK: - Increase
-    public func increase(_ node: PairingHeapNode<T, K>) {
+    public func increase(_ node: PairingHeapNode<T>) {
         
         var pivot = node
         var hops = 0
@@ -193,7 +193,7 @@ public class PairingHeap<T, K> {
     }
     
     //MARK: - Decrease
-    public func decrease(_ node: PairingHeapNode<T, K>) {
+    public func decrease(_ node: PairingHeapNode<T>) {
         
         var pivot = node.left
         var consolidation = false
@@ -210,7 +210,7 @@ public class PairingHeap<T, K> {
         
         if consolidation {
             
-            var forest: Queue<PairingHeap<T, K>> = Queue<PairingHeap<T, K>>()
+            var forest: Queue<PairingHeap<T>> = Queue<PairingHeap<T>>()
             forest.enqueue(PairingHeap(root: node, comparator: self.comparator))
             
             let parent = node.parent
@@ -273,7 +273,7 @@ public class PairingHeap<T, K> {
     public func levelOrder() -> [T] {
            
         var result: [T] = []
-        var discoveredNodes: [PairingHeapNode<T, K>] = [self._root!]
+        var discoveredNodes: [PairingHeapNode<T>] = [self._root!]
         discoveredNodes.reserveCapacity(self._count)
        
         while discoveredNodes.count > 0 {

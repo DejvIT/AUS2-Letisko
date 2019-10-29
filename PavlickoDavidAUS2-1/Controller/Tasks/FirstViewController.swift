@@ -8,27 +8,29 @@
 
 import UIKit
 
-class FirstSecondViewController: UIViewController {
+class FirstViewController: UIViewController, UITextFieldDelegate {
     
     var airport = Airport.shared
     
     @IBOutlet weak var creatorField: UITextField!
     @IBOutlet weak var codeField: UITextField!
     @IBOutlet weak var lengthField: UITextField!
-    @IBOutlet weak var departureTimeField: UITextField!
-    @IBOutlet weak var priorityField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
     }
 
     @IBAction func onAdd(_ sender: UIButton) {
         
-        let airplane = airport.addAirplane(Airplane(creator: creatorField.text!, code: codeField.text!, minLength: Int(lengthField.text!)!, arrivalTime: airport.time, flightPathAssigned: 0, departureTime: Int(departureTimeField.text!)!, priority: Int(priorityField.text!)!))
+        let airplane = Airplane(creator: creatorField.text!, code: codeField.text!, minLength: Int(lengthField.text!)!, arrivalTime: airport.time, departureRequest: nil, departureTime: nil, priority: nil)
+        _ = airport.addArrival(airplane)
+        _ = airport.addAirplane(airplane)
         
-        if (airplane != nil) {
-            _ = airport.arrival(airplane!)
-        }
+        self.creatorField.text = ""
+        self.codeField.text = ""
+        self.lengthField.text = ""
         
     }
 }

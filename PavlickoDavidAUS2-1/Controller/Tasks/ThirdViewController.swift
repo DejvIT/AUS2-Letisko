@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+class ThirdViewController: UIViewController, UITextFieldDelegate {
     
     var airport = Airport.shared
     
@@ -22,20 +22,21 @@ class ThirdViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func onSearch(_ sender: UIButton) {
         
         let airplane = Airplane(code: codeField.text!)
-        let node = airport.airplanes.search(airplane, delete: false)
+        let node = airport.airplanes.search(airplane, delete: false, closest: false)
         
         if (node != nil) {
             code.text = node?.value.code
             creator.text = node?.value.creator
             arrival.text = "\((node?.value.arrivalTime)!)"
-            departure.text = "\((node?.value.departureTime)!)"
-            priority.text = "\((node?.value.priority)!)"
+            departure.text = "\(node?.value.departureTime ?? "-")"
+            priority.text = "\(node?.value.priority ?? -1)"
         } else {
             code.text = "Lietadlo sa nenašlo"
             creator.text = ""

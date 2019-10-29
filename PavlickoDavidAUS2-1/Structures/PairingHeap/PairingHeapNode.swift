@@ -8,17 +8,15 @@
 
 import Foundation
 
-public class PairingHeapNode<T, K> {
+public class PairingHeapNode<T> {
     
     var _value: T
-    var _leftChild: PairingHeapNode<T, K>?
-    var _rightChild: PairingHeapNode<T, K>?
-    var _parent: PairingHeapNode<T, K>?
-    var _key: K
+    var _leftChild: PairingHeapNode<T>?
+    var _rightChild: PairingHeapNode<T>?
+    var _parent: PairingHeapNode<T>?
 
-    init(_ value: T,_ key: K) {
+    init(_ value: T) {
         self._value = value
-        self._key = key
     }
     
     deinit {
@@ -31,25 +29,19 @@ public class PairingHeapNode<T, K> {
         }
     }
     
-    var key: K {
-        get {
-            return self._key
-        }
-    }
-    
-    var left: PairingHeapNode<T, K>? {
+    var left: PairingHeapNode<T>? {
         get {
             return self._leftChild
         }
     }
     
-    var right: PairingHeapNode<T, K>? {
+    var right: PairingHeapNode<T>? {
         get {
             return self._rightChild
         }
     }
     
-    var parent: PairingHeapNode<T, K>? {
+    var parent: PairingHeapNode<T>? {
         get {
             return self._parent
         }
