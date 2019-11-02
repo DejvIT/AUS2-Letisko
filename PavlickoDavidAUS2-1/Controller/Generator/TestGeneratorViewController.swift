@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GeneratorViewController: UIViewController, UITextFieldDelegate {
+class TestGeneratorViewController: UIViewController, UITextFieldDelegate {
     
     var generator = Generator.shared
     

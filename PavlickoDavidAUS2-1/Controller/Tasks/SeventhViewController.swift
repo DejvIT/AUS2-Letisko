@@ -1,24 +1,21 @@
 //
-//  FourthViewController.swift
+//  SeventhViewController.swift
 //  PavlickoDavidAUS2-1
 //
-//  Created by MaestroDavo on 29/10/2019.
+//  Created by MaestroDavo on 31/10/2019.
 //  Copyright © 2019 David Pavlicko. All rights reserved.
 //
 
 import UIKit
 
-class FourthViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
-    
+class SeventhViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+
     var airport = Airport.shared
     
-    @IBOutlet weak var idField: UITextField!
-    @IBOutlet weak var codeOnRunway: UILabel!
-    @IBOutlet weak var descriptionOnRunway: UILabel!
     @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var idField: UITextField!
     
     var airplanes: [Airplane] = []
-    var airplaneOnRunway: Airplane?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +24,6 @@ class FourthViewController: UIViewController, UITableViewDataSource, UITableView
         
         table.delegate = self
         table.dataSource = self
-        
-        codeOnRunway.text = ""
-        descriptionOnRunway.text = ""
     }
 
     @IBAction func onShow(_ sender: UIButton) {
@@ -38,21 +32,7 @@ class FourthViewController: UIViewController, UITableViewDataSource, UITableView
             
             let runway = airport.allRunways.search(Runway(Int(idField.text!)!), delete: false, closest: false)?.value
             
-            if (runway != nil) {
-
-                airplaneOnRunway = runway?._airplane
-                codeOnRunway.text = airplaneOnRunway?.code
-                descriptionOnRunway.text = airplaneOnRunway?.toString()
-                
-                airplanes = (runway?.type!.waitingAirplanes.inOrder())!
-                
-            } else {
-                
-                airplanes = []
-                airplaneOnRunway = nil
-                codeOnRunway.text = ""
-                descriptionOnRunway.text = ""
-            }
+            airplanes = (runway?.type!.waitingAirplanes.inOrder())!
             
             self.table.reloadData()
         }
@@ -84,4 +64,5 @@ class FourthViewController: UIViewController, UITableViewDataSource, UITableView
         cell.selectedBackgroundView = backgroundView
         return cell
     }
+
 }

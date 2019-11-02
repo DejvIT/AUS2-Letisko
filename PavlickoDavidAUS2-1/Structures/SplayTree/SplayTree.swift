@@ -82,28 +82,31 @@ public class SplayTree<T> {
     public func levelOrder() -> [T] {
            
         var result: [T] = []
-        var discoveredNodes: [SplayNode<T>] = [self._root!]
-        discoveredNodes.reserveCapacity(self._count)
-       
-        while discoveredNodes.count > 0 {
-           
-            for item in discoveredNodes {
+        
+        if (self.getCount() > 0) {
+            var discoveredNodes: [SplayNode<T>] = [self._root!]
+             discoveredNodes.reserveCapacity(self._count)
+            
+             while discoveredNodes.count > 0 {
+                
+                 for item in discoveredNodes {
 
-                let pivot = discoveredNodes[0]
-                result.append(pivot.value)
-               
-                if (item.left != nil) {
-                    discoveredNodes.append(item.left!)
-                }
-               
-                if (item.right != nil) {
-                    discoveredNodes.append(item.right!)
-                }
-               
-                discoveredNodes.remove(at: 0)
-            }
+                     let pivot = discoveredNodes[0]
+                     result.append(pivot.value)
+                    
+                     if (item.left != nil) {
+                         discoveredNodes.append(item.left!)
+                     }
+                    
+                     if (item.right != nil) {
+                         discoveredNodes.append(item.right!)
+                     }
+                    
+                     discoveredNodes.remove(at: 0)
+                 }
+             }
         }
-           
+        
         return result
     }
     
@@ -138,7 +141,7 @@ public class SplayTree<T> {
     public func search(_ item: T, delete: Bool, closest: Bool) -> SplayNode<T>? {
         
         guard var pivot = self._root else {
-            return nil
+            return self.getRoot()
         }
         
         while true {
@@ -339,6 +342,21 @@ public class SplayTree<T> {
             } else {
 
                 return pivot
+            }
+        }
+    }
+    
+    //MARK: - Find node with max value
+    public func findMax() -> SplayNode<T> {
+        
+        var pivot = self.getRoot()
+        while true {
+            
+            if (pivot?.right != nil) {
+                pivot = pivot?.right!
+            } else {
+
+                return pivot!
             }
         }
     }

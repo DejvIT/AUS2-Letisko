@@ -11,17 +11,48 @@ import Foundation
 public class Runway {
     
     var _airplane: Airplane?
-    private let id: Int
-    let type: Int
+    private let _id: Int
+    let _type: RunwayType?
+    var _departures: Array<Departure> = Array()
     
-    init(_ id: Int, _ type: Int) {
-        self.id = id
-        self.type = type
+    init(_ id: Int, _ type: RunwayType) {
+        self._id = id
+        self._type = type
     }
     
     init(_ id: Int) {
-        self.id = id
-        self.type = 0
+        self._id = id
+        self._type = nil
+    }
+    
+    var airplane: Airplane? {
+        get {
+            return self._airplane
+        }
+    }
+    
+    var id: Int {
+        get {
+            return self._id
+        }
+    }
+    
+    var type: RunwayType? {
+        get {
+            return self._type
+        }
+    }
+    
+    var departures: Array<Departure> {
+        get {
+            return self._departures
+        }
+    }
+    
+    public func addDeparture(_ airplane: Airplane) -> Array<Departure> {
+        
+        self._departures.append(Departure(airplane, airplane.departureTime?.dateToString() ?? "-"))
+        return self.departures
     }
     
     static let comparator: Comparator = {

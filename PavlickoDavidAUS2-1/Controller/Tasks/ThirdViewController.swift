@@ -28,21 +28,23 @@ class ThirdViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func onSearch(_ sender: UIButton) {
         
-        let airplane = Airplane(code: codeField.text!)
-        let node = airport.airplanes.search(airplane, delete: false, closest: false)
-        
-        if (node != nil) {
-            code.text = node?.value.code
-            creator.text = node?.value.creator
-            arrival.text = "\((node?.value.arrivalTime)!)"
-            departure.text = "\(node?.value.departureTime ?? "-")"
-            priority.text = "\(node?.value.priority ?? -1)"
-        } else {
-            code.text = "Lietadlo sa nenašlo"
-            creator.text = ""
-            arrival.text = ""
-            departure.text = ""
-            priority.text = ""
+        if (codeField.text! != "") {
+            let airplane = Airplane(code: codeField.text!)
+            let node = airport.waitingForRunway.search(airplane, delete: false, closest: false)
+            
+            if (node != nil) {
+                code.text = node?.value.code
+                creator.text = node?.value.creator
+                arrival.text = "\((node?.value.arrivalTime.dateToString())!)"
+                departure.text = "\(node?.value.departureRequest?.dateToString() ?? "-")"
+                priority.text = "\(node?.value.priority ?? -1)"
+            } else {
+                code.text = "Lietadlo sa nenašlo"
+                creator.text = ""
+                arrival.text = ""
+                departure.text = ""
+                priority.text = ""
+            }
         }
     }
     

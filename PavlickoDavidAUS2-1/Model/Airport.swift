@@ -13,41 +13,63 @@ public class Airport {
     static let shared = Airport()
     
     var _time: DateTime
-    var arrivals: Array<String> = Array()
+    var arrivals: Array<Arrival> = Array()
     var airplanes: SplayTree<Airplane>! = SplayTree<Airplane>(Airplane.comparator)
+    var waitingForRunway: SplayTree<Airplane>! = SplayTree<Airplane>(Airplane.comparator)
     var runwayTypes: SplayTree<RunwayType>! = SplayTree<RunwayType>(RunwayType.comparator)
     var allRunways: SplayTree<Runway>! = SplayTree<Runway>(Runway.comparator)
     var airplanesInAir: SplayTree<Airplane>! = SplayTree<Airplane>(Airplane.comparator)
     
     init() {
-        self._time = DateTime(day: 29, month: 19, year: 2019, hour: 12, minute: 00)
-        let runway1 = runwayTypes.insert(RunwayType(1000))
-        _ = allRunways.insert(runway1!.addEmptyRunway(allRunways.getCount() + 1))
-        let runway2 = runwayTypes.insert(RunwayType(2000))
-        _ = allRunways.insert(runway2!.addEmptyRunway(allRunways.getCount() + 1))
-        _ = allRunways.insert(runway2!.addEmptyRunway(allRunways.getCount() + 1))
-        _ = allRunways.insert(runway2!.addEmptyRunway(allRunways.getCount() + 1))
-        let runway3 = runwayTypes.insert(RunwayType(3000))
-        _ = allRunways.insert(runway3!.addEmptyRunway(allRunways.getCount() + 1))
+        self._time = DateTime(day: 29, month: 19, year: 2019, hour: 12, minute: 0)
     }
     
-    var time: String {
-        return self._time.dateToString()
+    var time: DateTime {
+        return self._time
     }
     
     public func addAirplane(_ airplane: Airplane) -> Airplane? {
         
-        if (airplanes.insert(airplane) != nil) {
-            return airplane
-        } else {
-            return nil
-        }
+        let airplaneInAir = airplanesInAir.search(airplane, delete: false, closest: false)?.value
         
+        if (airplaneInAir != nil) {
+            
+            _ = airplanesInAir.delete(airplaneInAir!)
+            airplane.setNonActive()
+        }
+
+        _ = waitingForRunway.insert(airplane)
+        return airplanes.insert(airplane)
     }
     
-    public func addArrival(_ airplane: Airplane) -> Array<String> {
+    public func addArrival(_ airplane: Airplane) -> Array<Arrival> {
         
-        arrivals.append("\(arrivals.count + 1).) \(airplane.toString())")
+        arrivals.append(Arrival(airplane, airplane.arrivalTime.dateToString()))
         return self.arrivals
+    }
+    
+    public func addRunways(quantity: Int, length: Int) {
+        
+        let runwayType = RunwayType(length)
+        let checkType = self.runwayTypes.search(runwayType, delete: false, closest: false)?.value
+        var loop = quantity
+        
+        if (checkType != nil) {
+            
+            while (loop > 0) {
+                loop -= 1
+                
+                _ = self.allRunways.insert((checkType?.addEmptyRunway(self.allRunways.getCount() + 1))!)
+            }
+            
+        } else {
+            let newRunwayType = self.runwayTypes.insert(runwayType)
+            
+            while (loop > 0) {
+                loop -= 1
+                
+                _ = self.allRunways.insert((newRunwayType?.addEmptyRunway(self.allRunways.getCount() + 1))!)
+            }
+        }
     }
 }

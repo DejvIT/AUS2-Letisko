@@ -1,18 +1,17 @@
 //
-//  SixthViewController.swift
+//  Nineth2ViewController.swift
 //  PavlickoDavidAUS2-1
 //
-//  Created by MaestroDavo on 26/10/2019.
+//  Created by MaestroDavo on 01/11/2019.
 //  Copyright © 2019 David Pavlicko. All rights reserved.
 //
 
 import UIKit
 
-var myIndex = 0
-
-class SixthViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+class Nineth2ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     var airport = Airport.shared
+    var runway: Runway?
     
     @IBOutlet weak var table: UITableView!
     
@@ -21,16 +20,18 @@ class SixthViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         self.hideKeyboardWhenTappedAround()
         
-        table.dataSource = self
+        runway = airport.allRunways.inOrder()[myIndex]
+        
         table.delegate = self
+        table.dataSource = self
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return airport.waitingForRunway.getCount()
+        return runway?.departures.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 0.18 * table.bounds.height
+        return 0.1 * table.bounds.height
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,12 +40,11 @@ class SixthViewController: UIViewController, UITableViewDataSource, UITableViewD
             return UITableViewCell()
         }
         
-        let currentAirplaneArray = airport.waitingForRunway.inOrder()
-        let airplaneAtRow = currentAirplaneArray[indexPath.row]
+        let departureAtRow = runway!.departures[indexPath.row]
         
         cell.number.text = "\(indexPath.row + 1).)"
-        cell.code.text = airplaneAtRow.code
-        cell.airplaneDescription.text = airplaneAtRow.toString()
+        cell.code.text = "\(departureAtRow.airplane.code)"
+        cell.airplaneDescription.text = "Dátum a čas odletu: \(departureAtRow.time)"
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clear
@@ -52,12 +52,4 @@ class SixthViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.selectedBackgroundView = backgroundView
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        myIndex = indexPath.row
-        performSegue(withIdentifier: "airplaneDetailSegue", sender: self)
-        
-    }
-
 }

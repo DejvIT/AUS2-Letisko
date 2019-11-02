@@ -24,13 +24,16 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func onAdd(_ sender: UIButton) {
         
-        let airplane = Airplane(creator: creatorField.text!, code: codeField.text!, minLength: Int(lengthField.text!)!, arrivalTime: airport.time, departureRequest: nil, departureTime: nil, priority: nil)
-        _ = airport.addArrival(airplane)
-        _ = airport.addAirplane(airplane)
-        
-        self.creatorField.text = ""
-        self.codeField.text = ""
-        self.lengthField.text = ""
+        if (creatorField.text! != "" && codeField.text! != "" && lengthField.text! != "") {
+
+            let airplane = Airplane(creator: creatorField.text!, code: codeField.text!, minLength: Int(lengthField.text!)!, arrivalTime: airport.time, departureRequest: nil, departureTime: nil, priority: nil)
+            _ = airport.addArrival(airplane)
+            _ = airport.addAirplane(airplane)
+            
+            self.creatorField.text = ""
+            self.codeField.text = ""
+            self.lengthField.text = ""
+        }
         
     }
 }

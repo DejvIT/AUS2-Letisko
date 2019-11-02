@@ -23,25 +23,27 @@ class FifthViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func onStart(_ sender: UIButton) {
         
-        if codeField.text != "" {
+        if (codeField.text != "") {
             let airplane = Airplane(code: codeField.text!)
             let node = airport.airplanes.search(airplane, delete: false, closest: false)
             
             if node?.value._runway != nil {
                 let runway = node?.value._runway
-                let runwayType = RunwayType(runway!.type)
-                let runwayTypeNode = airport.runwayTypes.search(runwayType, delete: false, closest: false)
                 node?.value._departureTime = airport.time
-                runwayTypeNode?.value.departures.append((node?.value.toString())!)
-                
-                let nextAirplane = runwayTypeNode?.value.priorityWaiting.getRoot()?.value
+                runway!._departures.append(Departure(node!.value, node?.value.departureTime?.dateToString() ?? "-"))
                 
                 runway?._airplane = nil
                 node?.value._runway = nil
+                
+                let nextAirplane = runway?.type!.priorityWaiting.getRoot()?.value
+                if nextAirplane != nil {
+                    runway?.type!.priorityWaiting.delete()
+                    _ = runway?.type!.waitingAirplanes.delete(nextAirplane!)
+                    runway?.type!.manageAirplane(nextAirplane!)
+                }
+                
                 _ = airport.airplanesInAir.insert(node!.value)
                 _ = airport.airplanes.delete(node!.value)
-                
-                runwayTypeNode?.value.manageAirplane(nextAirplane!)
                 
                 descriptionLabel.text = node?.value.toString()
             } else {

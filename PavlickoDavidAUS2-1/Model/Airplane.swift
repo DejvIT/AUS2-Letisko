@@ -11,22 +11,24 @@ import Foundation
 public class Airplane {
     
     private let _creator: String
-    private let _code: String   //unique identifier
+    private let _code: String
     private let _minLength: Int
-    private let _arrivalTime: String
-    var _departureRequest: String?
-    var _departureTime: String?
+    private let _arrivalTime: DateTime
+    var _departureRequest: DateTime?
+    var _departureTime: DateTime?
     var _priority: Int?
     var _runway: Runway?
+    var _runwayType: RunwayType?
+    var _pairingHeapNode: PairingHeapNode<Airplane>?
     
-    init(creator: String, code: String, minLength: Int, arrivalTime: String, departureRequest: String?, departureTime: String?, priority: Int?) {
+    init(creator: String, code: String, minLength: Int, arrivalTime: DateTime, departureRequest: DateTime?, departureTime: DateTime?, priority: Int?) {
         
         self._creator = creator
         self._code = code
         self._minLength = minLength
-        self._arrivalTime = arrivalTime
-        self._departureRequest = departureRequest
-        self._departureTime = departureTime
+        self._arrivalTime = DateTime(arrivalTime)
+        self._departureRequest = DateTime(departureRequest)
+        self._departureTime = DateTime(departureTime)
         self._priority = priority
     }
     
@@ -38,9 +40,9 @@ public class Airplane {
         self._creator = ""
         self._code = code
         self._minLength = 0
-        self._arrivalTime = "29.10.2019 12:00"
-        self._departureRequest = "29.10.2019 12:00"
-        self._departureTime = "29.10.2019 12:00"
+        self._arrivalTime = DateTime(day: 29, month: 10, year: 2019, hour: 12, minute: 0)
+        self._departureRequest = nil
+        self._departureTime = nil
         self._priority = 0
     }
     
@@ -62,19 +64,19 @@ public class Airplane {
         }
     }
     
-    var arrivalTime: String {
+    var arrivalTime: DateTime {
         get {
             return self._arrivalTime
         }
     }
     
-    var departureRequest: String? {
+    var departureRequest: DateTime? {
         get {
             return self._departureRequest
         }
     }
     
-    var departureTime: String? {
+    var departureTime: DateTime? {
         get {
             return self._departureTime
         }
@@ -83,6 +85,39 @@ public class Airplane {
     var priority: Int? {
         get {
             return self._priority
+        }
+    }
+    
+    var runway: Runway? {
+        get {
+            return self._runway
+        }
+    }
+    
+    var runwayType: RunwayType? {
+        get {
+            return self._runwayType
+        }
+    }
+    
+    var pairingHeapNode: PairingHeapNode<Airplane>? {
+        get {
+            return self._pairingHeapNode
+        }
+    }
+    
+    public func toString() -> String {
+        
+        return "Lietadlo \(self.code), \(self.creator) s požadovanou dĺžkou dráhy \(self.minLength)m pristalo \(self.arrivalTime.dateToString()), odlet požiadaný na: \(self.departureRequest?.dateToString() ?? "-"), priorita: \(self.priority ?? -1)"
+        
+    }
+    
+    public func setNonActive() {
+        self._departureTime = nil
+        self._priority = -1
+        if (self.pairingHeapNode != nil) {
+            self.runwayType?.priorityWaiting.deleteNode(self.pairingHeapNode!)
+            _ = self.runwayType?.waitingAirplanes.delete(self)
         }
     }
     
@@ -112,12 +147,6 @@ public class Airplane {
         } else {
             return ComparisonResult.orderedDescending
         }
-    }
-    
-    public func toString() -> String {
-        
-        return "Lietadlo \(self.code), \(self.creator) s požadovanou dĺžkou dráhy \(self.minLength)m pristalo v čase \(self.arrivalTime), požiadavka na odlet v čase: \(self.departureRequest ?? "-"), priorita: \(self.priority ?? -1)"
-        
     }
     
 }

@@ -31,6 +31,18 @@ class TableViewController: UITableViewController {
     @IBOutlet weak var sixthView: UIView!
     @IBOutlet weak var sixthCircle: UIView!
     
+    @IBOutlet weak var seventhView: UIView!
+    @IBOutlet weak var seventhCircle: UIView!
+    
+    @IBOutlet weak var eightView: UIView!
+    @IBOutlet weak var eightCircle: UIView!
+    
+    @IBOutlet weak var ninethView: UIView!
+    @IBOutlet weak var ninethCircle: UIView!
+    
+    @IBOutlet weak var tenthView: UIView!
+    @IBOutlet weak var tenthCircle: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -94,13 +106,58 @@ class TableViewController: UITableViewController {
         sixthCircle.layer.borderWidth = 2
         sixthCircle.layer.cornerRadius = 20
         
-        timeButton.setTitle(airport.time, for: .normal)
+        seventhView.layer.cornerRadius = 25
+        seventhView.layer.shadowColor = UIColor.white.cgColor
+        seventhView.layer.shadowRadius = 5
+        seventhView.layer.shadowOpacity = 0.75
+        seventhView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        
+        seventhCircle.layer.borderColor = UIColor.black.cgColor
+        seventhCircle.layer.borderWidth = 2
+        seventhCircle.layer.cornerRadius = 20
+        
+        eightView.layer.cornerRadius = 25
+        eightView.layer.shadowColor = UIColor.white.cgColor
+        eightView.layer.shadowRadius = 5
+        eightView.layer.shadowOpacity = 0.75
+        eightView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        
+        eightCircle.layer.borderColor = UIColor.black.cgColor
+        eightCircle.layer.borderWidth = 2
+        eightCircle.layer.cornerRadius = 20
+        
+        ninethView.layer.cornerRadius = 25
+        ninethView.layer.shadowColor = UIColor.white.cgColor
+        ninethView.layer.shadowRadius = 5
+        ninethView.layer.shadowOpacity = 0.75
+        ninethView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        
+        ninethCircle.layer.borderColor = UIColor.black.cgColor
+        ninethCircle.layer.borderWidth = 2
+        ninethCircle.layer.cornerRadius = 20
+        
+        tenthView.layer.cornerRadius = 25
+        tenthView.layer.shadowColor = UIColor.white.cgColor
+        tenthView.layer.shadowRadius = 5
+        tenthView.layer.shadowOpacity = 0.75
+        tenthView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        
+        tenthCircle.layer.borderColor = UIColor.black.cgColor
+        tenthCircle.layer.borderWidth = 2
+        tenthCircle.layer.cornerRadius = 20
+        
+        timeButton.setTitle(airport.time.dateToString(), for: .normal)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        timeButton.setTitle(airport.time.dateToString(), for: .normal)
     }
     
     @IBOutlet weak var timeButton: UIButton!
     @IBAction func onTime(_ sender: UIButton) {
         airport._time.addTime()
-        timeButton.setTitle(airport.time, for: .normal)
+        timeButton.setTitle(airport.time.dateToString(), for: .normal)
     }
     
 }

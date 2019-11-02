@@ -49,6 +49,14 @@ public class DateTime {
         }
     }
     
+    init(_ dateTime: DateTime?) {
+        self._day = dateTime?.day ?? 1
+        self._month = dateTime?.month ?? 1
+        self._year = dateTime?.year ?? 2000
+        self._hour = dateTime?.hour ?? 0
+        self._minute = dateTime?.minute ?? 0
+    }
+    
     var day: Int {
         get {
             return self._day

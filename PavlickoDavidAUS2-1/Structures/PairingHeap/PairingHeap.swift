@@ -111,7 +111,7 @@ public class PairingHeap<T> {
         if (self.getCount() == 1) {
             self._count -= 1
             self._root = nil
-        } else {
+        } else if (self.getCount() > 1) {
             var pivot = self._root?.left
             var forest: Queue<PairingHeap<T>> = Queue<PairingHeap<T>>()
             self._root!._leftChild = nil
@@ -178,6 +178,7 @@ public class PairingHeap<T> {
                             node.parent?._leftChild = node.right
                         }
                         node.right?._parent = node.parent
+                        node._rightChild = nil
                     } else {
                         if (hops > 0) {
                             node.parent?._rightChild = nil
@@ -219,7 +220,11 @@ public class PairingHeap<T> {
             var parentIsBrother = false
             if (parent?.right != nil) {
                 if (comparator((parent?.right?.value)!, node.value) == .orderedSame) {
-                    parentIsBrother = true
+                    if (parent?.right?.left != nil) {
+                        if (comparator(parent?.right?.left?.value as Any, node.left?.value as Any) == .orderedSame) {
+                            parentIsBrother = true
+                        }
+                    }
                 }
             }
             

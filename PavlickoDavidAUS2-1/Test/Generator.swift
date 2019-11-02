@@ -17,6 +17,7 @@ class Generator {
     var pairingHeap: PairingHeap<Int>! = PairingHeap<Int>(Int.comparator)
     var arrayPNodes : Array<PairingHeapNode<Int>> = Array()
     
+    // MARK: - Splay Tree
     public func splayTree(loop: Int, insert: Int, search: Int, delete: Int, progressBar: UIProgressView?) {
 
         var loop = loop
@@ -144,6 +145,7 @@ class Generator {
         }
     }
     
+    // MARK: - Pairing Heap
     public func pairingHeapGen(loop: Int, insert: Int, change: Int, delete: Int, progressBar: UIProgressView?) {
 
         var loop = loop
@@ -154,6 +156,8 @@ class Generator {
         
         while loop > 0 {
             loop -= 1
+            
+            print("Number of nodes in pairing heap is \(pairingHeap.getCount())")
             
             if hundreth > 0 {
                 if loop % hundreth == 0 && progressBar != nil {
@@ -166,7 +170,7 @@ class Generator {
             let random: Double = Double.random(in: 0...1)
             if (random <= insertRatio) {
 
-                let randomNumber = Int.random(in: 0 ... loop*4)
+                let randomNumber = Int.random(in: 0 ... pairingHeap.getCount() * 4)
                 print("\(loop + 1).) 😊 Inserting number \(randomNumber) 🤪")
                 arrayPNodes.append(pairingHeap.insert(randomNumber))
                 
@@ -194,7 +198,7 @@ class Generator {
             } else if (random <= (insertRatio + changeRatio + deleteRatio)) {
                 
                 if (arrayPNodes.count > 0) {
-
+                    
                     let randomIndex = Int.random(in: 0...arrayPNodes.count - 1)
                     let randomNode = arrayPNodes[randomIndex]
                     arrayPNodes.remove(at: randomIndex)

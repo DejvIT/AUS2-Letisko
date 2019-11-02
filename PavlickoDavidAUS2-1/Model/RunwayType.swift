@@ -11,7 +11,6 @@ import Foundation
 public class RunwayType {
     
     var _length: Int
-    var departures: Array<String> = Array()
     var waitingAirplanes: SplayTree<Airplane>! = SplayTree<Airplane>(Airplane.comparator)
     var priorityWaiting: PairingHeap<Airplane>! = PairingHeap<Airplane>(Airplane.priorityComparator)
     var runways: Array<Runway> = Array()
@@ -24,13 +23,6 @@ public class RunwayType {
         get {
             return self._length
         }
-    }
-    
-    public func addDeparture(_ airplane: Airplane) -> Array<String> {
-        
-        departures.append("\(departures.count + 1).) \(airplane.toString())")
-        return self.departures
-        
     }
     
     public func addRequest(_ airplane: Airplane) {
@@ -56,7 +48,7 @@ public class RunwayType {
     }
     
     public func addEmptyRunway(_ id: Int) -> Runway {
-        let runway = Runway(id, self.length)
+        let runway = Runway(id, self)
         runways.append(runway)
         return runway
     }
@@ -74,7 +66,9 @@ public class RunwayType {
         }
         if !airplaneOnRunway {
             _ = waitingAirplanes.insert(airplane)
-            _ = priorityWaiting.insert(airplane)
+            airplane._pairingHeapNode = priorityWaiting.insert(airplane)
         }
+        
+        airplane._runwayType = self
     }
 }

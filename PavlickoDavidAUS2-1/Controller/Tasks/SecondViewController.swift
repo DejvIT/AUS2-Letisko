@@ -22,13 +22,14 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         
         self.hideKeyboardWhenTappedAround()
         
-        airplane = airport.airplanes.inOrder()[myIndex]
+        airplane = airport.waitingForRunway.inOrder()[myIndex]
         airplaneCode.text = airplane?.code
     }
 
     @IBAction func onRequest(_ sender: UIButton) {
         
-        if priorityField.text != "" {
+        if (priorityField.text != "") {
+            
             airplane!._priority = Int(priorityField.text!)!
             airplane!._departureRequest = airport.time
             
@@ -37,11 +38,11 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             runwayType?.value.manageAirplane(airplane!)
             
             if runwayType != nil {
-                // Ostava lietadlo v tomto zozname ci ?
-//                _ = airport.airplanes.delete(airplane!)
+                _ = airport.waitingForRunway.delete(airplane!)
             }
             
             self.dismiss(animated: true, completion: nil)
+            self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
         }
     }
 }
