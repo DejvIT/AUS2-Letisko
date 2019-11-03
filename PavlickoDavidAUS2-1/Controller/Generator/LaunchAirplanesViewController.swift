@@ -50,7 +50,7 @@ class LaunchAirplanesViewController: UIViewController, UITextFieldDelegate {
                         let airplane = randomRunway.airplane
                         
                         airplane!._departureTime = self.airport.time
-                        randomRunway._departures.append(Departure(airplane!, airplane!.departureTime?.dateToString() ?? "-"))
+                        randomRunway._departures.append(Departure(airplane!, airplane!.departureTime?.dateToString() ?? "-", randomRunway.id))
                         
                         randomRunway._airplane = nil
                         airplane!._runway = nil

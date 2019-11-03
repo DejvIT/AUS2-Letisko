@@ -113,7 +113,8 @@ public class Airplane {
     }
     
     public func setNonActive() {
-        self._departureTime = nil
+        self._departureTime = DateTime(nil)
+        self._departureRequest = DateTime(nil)
         self._priority = -1
         if (self.pairingHeapNode != nil) {
             self.runwayType?.priorityWaiting.deleteNode(self.pairingHeapNode!)
@@ -149,4 +150,7 @@ public class Airplane {
         }
     }
     
+    public func toExport() -> String {
+        return "\(creator);\(code);\(minLength);\(arrivalTime.toExport());\(departureRequest?.toExport() ?? "nil");\(departureTime?.toExport() ?? "nil");\(priority ?? -1)\n"
+    }
 }

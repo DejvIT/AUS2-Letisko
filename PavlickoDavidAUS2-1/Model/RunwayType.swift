@@ -71,4 +71,8 @@ public class RunwayType {
         
         airplane._runwayType = self
     }
+    
+    public func toExport() -> String {
+        return "\(self.length)\n"
+    }
 }

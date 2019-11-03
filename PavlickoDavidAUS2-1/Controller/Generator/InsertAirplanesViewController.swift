@@ -51,8 +51,9 @@ class InsertAirplanesViewController: UIViewController, UITextFieldDelegate {
                         break
                     }
                     
-                    let airplane = Airplane(creator: "FRI Airlines", code: self.randomString(length: length), minLength: Int.random(in: 200...longestRunwayType.length), arrivalTime: self.airport.time, departureRequest: nil, departureTime: nil, priority: nil)
-                    
+                    let airplane = Airplane(creator: "FRI Airlines", code: self.randomString(length: length), minLength: Int.random(in: 1...longestRunwayType.length), arrivalTime: self.airport.time, departureRequest: nil, departureTime: nil, priority: nil)
+
+                    _ = self.airport.addArrival(airplane)
                     let newAirplane = self.airport.addAirplane(airplane)
                     if (newAirplane != nil) {
                         arrayAirplanes.append(newAirplane!)

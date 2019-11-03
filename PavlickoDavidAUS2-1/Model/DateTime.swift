@@ -134,4 +134,8 @@ public class DateTime {
         }
         
     }
+    
+    public func toExport() -> String {
+        return "\(day);\(month);\(year);\(hour);\(minute)"
+    }
 }

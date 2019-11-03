@@ -18,4 +18,7 @@ public class Arrival {
         self._time = time
     }
     
+    public func toExport() -> String {
+        return "\(_airplane.code);\(_time)\n"
+    }
 }

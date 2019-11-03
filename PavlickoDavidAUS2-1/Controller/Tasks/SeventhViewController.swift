@@ -32,7 +32,11 @@ class SeventhViewController: UIViewController, UITableViewDataSource, UITableVie
             
             let runway = airport.allRunways.search(Runway(Int(idField.text!)!), delete: false, closest: false)?.value
             
-            airplanes = (runway?.type!.waitingAirplanes.inOrder())!
+            if runway != nil {
+                airplanes = (runway?.type!.waitingAirplanes.inOrder())!
+            } else {
+                airplanes = []
+            }
             
             self.table.reloadData()
         }

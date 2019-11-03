@@ -10,10 +10,10 @@ import Foundation
 
 public class Runway {
     
-    var _airplane: Airplane?
     private let _id: Int
     let _type: RunwayType?
     var _departures: Array<Departure> = Array()
+    var _airplane: Airplane?
     
     init(_ id: Int, _ type: RunwayType) {
         self._id = id
@@ -51,7 +51,7 @@ public class Runway {
     
     public func addDeparture(_ airplane: Airplane) -> Array<Departure> {
         
-        self._departures.append(Departure(airplane, airplane.departureTime?.dateToString() ?? "-"))
+        self._departures.append(Departure(airplane, airplane.departureTime?.dateToString() ?? "-", self.id))
         return self.departures
     }
     
@@ -67,5 +67,9 @@ public class Runway {
         } else {
             return ComparisonResult.orderedDescending
         }
+    }
+    
+    public func toExport() -> String {
+        return "\(id);\(type?.length ?? -1);\(airplane?.code ?? "nil")\n"
     }
 }

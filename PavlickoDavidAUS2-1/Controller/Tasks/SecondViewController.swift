@@ -31,7 +31,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         if (priorityField.text != "") {
             
             airplane!._priority = Int(priorityField.text!)!
-            airplane!._departureRequest = airport.time
+            airplane!._departureRequest = DateTime(airport.time)
             
             let neededRunway = RunwayType(airplane!.minLength)
             let runwayType = airport.runwayTypes.search(neededRunway, delete: false, closest: true)

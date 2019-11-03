@@ -26,7 +26,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         
         if (creatorField.text! != "" && codeField.text! != "" && lengthField.text! != "") {
 
-            let airplane = Airplane(creator: creatorField.text!, code: codeField.text!, minLength: Int(lengthField.text!)!, arrivalTime: airport.time, departureRequest: nil, departureTime: nil, priority: nil)
+            let airplane = Airplane(creator: creatorField.text!, code: codeField.text!, minLength: Int(lengthField.text!)!, arrivalTime: airport.time, departureRequest: DateTime(nil), departureTime: DateTime(nil), priority: nil)
             _ = airport.addArrival(airplane)
             _ = airport.addAirplane(airplane)
             

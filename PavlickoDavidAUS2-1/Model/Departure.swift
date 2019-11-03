@@ -12,10 +12,12 @@ public class Departure {
     
     private let _airplane: Airplane
     private let _time: String
+    private let _runwayID: Int
     
-    init(_ airplane: Airplane, _ time: String) {
+    init(_ airplane: Airplane, _ time: String, _ runwayID: Int) {
         self._airplane = airplane
         self._time = time
+        self._runwayID = runwayID
     }
     
     var airplane: Airplane {
@@ -28,5 +30,15 @@ public class Departure {
         get {
             return self._time
         }
+    }
+    
+    var runwayID: Int {
+        get {
+            return self._runwayID
+        }
+    }
+    
+    public func toExport() -> String {
+        return "\(airplane.code);\(time);\(runwayID)\n"
     }
 }
