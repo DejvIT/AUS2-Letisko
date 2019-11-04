@@ -44,7 +44,7 @@ public class Airport {
     
     public func addArrival(_ airplane: Airplane) -> Array<Arrival> {
         
-        arrivals.append(Arrival(airplane, airplane.arrivalTime.dateToString()))
+        arrivals.append(Arrival(airplane, DateTime(airplane.arrivalTime)))
         return self.arrivals
     }
     

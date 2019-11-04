@@ -109,7 +109,7 @@ class GeneratorViewController: UIViewController {
                     if (write) {
                         
                         let airplane = lokalSplayAirplanes.search(Airplane(code: component[0]), delete: false, closest: false)?.value
-                        _ = self!.airport.arrivals.append(Arrival(airplane!, component[1]))
+                        _ = self!.airport.arrivals.append(Arrival(airplane!, DateTime(day: Int(component[1])!, month: Int(component[2])!, year: Int(component[3])!, hour: Int(component[4])!, minute: Int(component[5])!)))
                     }
                     
                     if (section != "") {
@@ -248,9 +248,9 @@ class GeneratorViewController: UIViewController {
                     if (write) {
                         
                         let airplane = lokalSplayAirplanes.search(Airplane(code: component[0]), delete: false, closest: false)?.value
-                        let runway = self!.airport.allRunways.search(Runway(Int(component[2])!), delete: false, closest: false)?.value
+                        let runway = self!.airport.allRunways.search(Runway(Int(component[16])!), delete: false, closest: false)?.value
                         
-                        runway?._departures.append(Departure(airplane!, component[1], runway!.id))
+                        runway?._departures.append(Departure(airplane!, DateTime(day: Int(component[1])!, month: Int(component[2])!, year: Int(component[3])!, hour: Int(component[4])!, minute: Int(component[5])!), DateTime(day: Int(component[6])!, month: Int(component[7])!, year: Int(component[8])!, hour: Int(component[9])!, minute: Int(component[10])!), DateTime(day: Int(component[11])!, month: Int(component[12])!, year: Int(component[13])!, hour: Int(component[14])!, minute: Int(component[15])!), runway!.id))
                     }
                     
                     if (section != "") {

@@ -31,7 +31,7 @@ class Nineth2ViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 0.1 * table.bounds.height
+        return 0.2 * table.bounds.height
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -44,7 +44,7 @@ class Nineth2ViewController: UIViewController, UITableViewDataSource, UITableVie
         
         cell.number.text = "\(indexPath.row + 1).)"
         cell.code.text = "\(departureAtRow.airplane.code)"
-        cell.airplaneDescription.text = "Dátum a čas odletu: \(departureAtRow.time)"
+        cell.airplaneDescription.text = "Dátum a čas príletu: \(departureAtRow.arrival?.dateToString() ?? "nil"), požiadavka na dráhu: \(departureAtRow.request?.dateToString() ?? "nil"), Odlet: \(departureAtRow.departure?.dateToString() ?? "nil")"
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clear

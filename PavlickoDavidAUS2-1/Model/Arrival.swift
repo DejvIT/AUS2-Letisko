@@ -11,14 +11,26 @@ import Foundation
 public class Arrival {
     
     private let _airplane: Airplane
-    private let _time: String
+    private let _time: DateTime
     
-    init(_ airplane: Airplane, _ time: String) {
+    init(_ airplane: Airplane, _ time: DateTime) {
         self._airplane = airplane
         self._time = time
     }
     
+    var airplane: Airplane {
+        get {
+            return self._airplane
+        }
+    }
+    
+    var time: DateTime {
+        get {
+            return self._time
+        }
+    }
+    
     public func toExport() -> String {
-        return "\(_airplane.code);\(_time)\n"
+        return "\(airplane.code);\(time.toExport())\n"
     }
 }

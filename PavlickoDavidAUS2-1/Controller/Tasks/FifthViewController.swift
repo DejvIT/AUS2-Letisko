@@ -30,7 +30,7 @@ class FifthViewController: UIViewController, UITextFieldDelegate {
             if node?.value._runway != nil {
                 let runway = node?.value._runway
                 node?.value._departureTime = DateTime(airport.time)
-                runway!._departures.append(Departure(node!.value, node?.value.departureTime?.dateToString() ?? "-", runway!.id))
+                runway!._departures.append(Departure(node!.value, DateTime(node?.value.arrivalTime), DateTime(node?.value.departureRequest), DateTime(node?.value.departureTime), runway!.id))
                 
                 runway?._airplane = nil
                 node?.value._runway = nil

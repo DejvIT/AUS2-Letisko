@@ -51,7 +51,7 @@ public class Runway {
     
     public func addDeparture(_ airplane: Airplane) -> Array<Departure> {
         
-        self._departures.append(Departure(airplane, airplane.departureTime?.dateToString() ?? "-", self.id))
+        self._departures.append(Departure(airplane, DateTime(airplane.arrivalTime), DateTime(airplane.departureRequest), DateTime(airplane.departureTime), self.id))
         return self.departures
     }
     

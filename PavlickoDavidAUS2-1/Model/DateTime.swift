@@ -107,6 +107,10 @@ public class DateTime {
             }
         }
         
+        if ("\(self.day).\(self.month).\(self.year) \(hours):\(minutes)" == "1.1.2000 00:00") {
+            return "-"
+        }
+        
         return "\(self.day).\(self.month).\(self.year) \(hours):\(minutes)"
     }
     

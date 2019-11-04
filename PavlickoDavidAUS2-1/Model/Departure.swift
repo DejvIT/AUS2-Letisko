@@ -11,12 +11,16 @@ import Foundation
 public class Departure {
     
     private let _airplane: Airplane
-    private let _time: String
+    private let _arrival: DateTime?
+    private let _request: DateTime?
+    private let _departure: DateTime?
     private let _runwayID: Int
     
-    init(_ airplane: Airplane, _ time: String, _ runwayID: Int) {
+    init(_ airplane: Airplane, _ arrival: DateTime?, _ request: DateTime?, _ departure: DateTime?, _ runwayID: Int) {
         self._airplane = airplane
-        self._time = time
+        self._arrival = arrival
+        self._request = request
+        self._departure = departure
         self._runwayID = runwayID
     }
     
@@ -26,9 +30,21 @@ public class Departure {
         }
     }
     
-    var time: String {
+    var arrival: DateTime? {
         get {
-            return self._time
+            return self._arrival
+        }
+    }
+    
+    var request: DateTime? {
+        get {
+            return self._request
+        }
+    }
+    
+    var departure: DateTime? {
+        get {
+            return self._departure
         }
     }
     
@@ -39,6 +55,6 @@ public class Departure {
     }
     
     public func toExport() -> String {
-        return "\(airplane.code);\(time);\(runwayID)\n"
+        return "\(airplane.code);\(arrival?.toExport() ?? "nil");\(request?.toExport() ?? "nil");\(departure?.toExport() ?? "nil");\(runwayID)\n"
     }
 }
