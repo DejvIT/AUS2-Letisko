@@ -46,6 +46,9 @@ class FifthViewController: UIViewController, UITextFieldDelegate {
                 _ = airport.airplanes.delete(node!.value)
                 
                 descriptionLabel.text = node?.value.toString()
+                
+                codeField.text = ""
+                
             } else {
                 descriptionLabel.text = "Lietadlo nie je pripravené na štart!"
             }

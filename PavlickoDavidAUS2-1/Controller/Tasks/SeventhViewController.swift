@@ -39,6 +39,7 @@ class SeventhViewController: UIViewController, UITableViewDataSource, UITableVie
             }
             
             self.table.reloadData()
+            idField.text = ""
         }
     }
     

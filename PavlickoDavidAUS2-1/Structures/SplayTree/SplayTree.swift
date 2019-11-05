@@ -84,27 +84,28 @@ public class SplayTree<T> {
         var result: [T] = []
         
         if (self.getCount() > 0) {
-            var discoveredNodes: [SplayNode<T>] = [self._root!]
-             discoveredNodes.reserveCapacity(self._count)
             
-             while discoveredNodes.count > 0 {
+            var discoveredNodes: [SplayNode<T>] = [self._root!]
+            discoveredNodes.reserveCapacity(self._count)
+            
+            while discoveredNodes.count > 0 {
                 
-                 for item in discoveredNodes {
+                for item in discoveredNodes {
 
-                     let pivot = discoveredNodes[0]
-                     result.append(pivot.value)
+                    let pivot = discoveredNodes[0]
+                    result.append(pivot.value)
                     
-                     if (item.left != nil) {
-                         discoveredNodes.append(item.left!)
-                     }
+                    if (item.left != nil) {
+                        discoveredNodes.append(item.left!)
+                    }
                     
-                     if (item.right != nil) {
-                         discoveredNodes.append(item.right!)
-                     }
+                    if (item.right != nil) {
+                        discoveredNodes.append(item.right!)
+                    }
                     
-                     discoveredNodes.remove(at: 0)
-                 }
-             }
+                    discoveredNodes.remove(at: 0)
+                }
+            }
         }
         
         return result
@@ -114,24 +115,28 @@ public class SplayTree<T> {
     public func inOrder() -> [T] {
         
         var result: [T] = []
-        var discoveredNodes: [SplayNode<T>] = []
-        var pivot = self._root
-      
-        while (pivot != nil || discoveredNodes.isEmpty == false)
-        {
-            while (pivot !=  nil)
+        
+        if (self.getCount() > 0) {
+            
+            var discoveredNodes: [SplayNode<T>] = []
+            var pivot = self._root
+            
+            while (pivot != nil || discoveredNodes.isEmpty == false)
             {
-                discoveredNodes.append(pivot!)
-                pivot = pivot?.left
+                while (pivot !=  nil)
+                {
+                    discoveredNodes.append(pivot!)
+                    pivot = pivot?.left
+                }
+                  
+                pivot = discoveredNodes[discoveredNodes.count - 1]
+                discoveredNodes.remove(at: discoveredNodes.count - 1)
+            
+                result.append(pivot!.value)
+                  
+                pivot = pivot?.right
+            
             }
-            
-            pivot = discoveredNodes[discoveredNodes.count - 1]
-            discoveredNodes.remove(at: discoveredNodes.count - 1)
-      
-            result.append(pivot!.value)
-            
-            pivot = pivot?.right
-      
         }
         
         return result

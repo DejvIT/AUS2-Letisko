@@ -25,10 +25,18 @@ class GeneratorViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         print("DEBUG")
+        
+        if airport.allRunways.getCount() > 0 {
+            importButton.isHidden = true
+        } else {
+            importButton.isHidden = false
+        }
     }
     
     @IBAction func onImport(_ sender: UIButton) {
         importExport.prepareForImport()
+
+        importButton.isHidden = true
         
         var write = false
         var section = ""
@@ -167,6 +175,7 @@ class GeneratorViewController: UIViewController {
                         let airplane = lokalSplayAirplanes.search(Airplane(code: component[2]), delete: false, closest: false)?.value
                         if airplane != nil {
                             runway._airplane = airplane
+                            airplane?._runway = runway
                         }
                         
                         _ = self!.airport.allRunways.insert(runway)
@@ -317,7 +326,7 @@ class GeneratorViewController: UIViewController {
         let fileName = "Airplanes.csv"
         let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
         
-        var csvText = "Vsetko co vieme o lietadle\n"
+        var csvText = "Včetko čo vieme o lietadle\n"
         
         if (airport.airplanes.getCount() > 0) {
 

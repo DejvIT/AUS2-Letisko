@@ -48,6 +48,10 @@ class EightViewController: UIViewController, UITextFieldDelegate {
                         airplane?._priority = Int(priority!)!
                         airplane?.runwayType?.priorityWaiting.increase((airplane?.pairingHeapNode)!)
                     }
+
+                    self.codeField.text = ""
+                    self.priorityField.text = ""
+                    self.descriptionLabel.text = airplane?.toString()
                 }
             }
         }

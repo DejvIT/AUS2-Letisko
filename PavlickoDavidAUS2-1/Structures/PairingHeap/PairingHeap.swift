@@ -278,25 +278,29 @@ public class PairingHeap<T> {
     public func levelOrder() -> [T] {
            
         var result: [T] = []
-        var discoveredNodes: [PairingHeapNode<T>] = [self._root!]
-        discoveredNodes.reserveCapacity(self._count)
-       
-        while discoveredNodes.count > 0 {
-           
-            for item in discoveredNodes {
+        
+        if (self.getCount() > 0) {
+        
+            var discoveredNodes: [PairingHeapNode<T>] = [self._root!]
+            discoveredNodes.reserveCapacity(self._count)
+            
+            while discoveredNodes.count > 0 {
+                
+                for item in discoveredNodes {
 
-                let pivot = discoveredNodes[0]
-                result.append(pivot.value)
-               
-                if (item.left != nil) {
-                    discoveredNodes.append(item.left!)
+                    let pivot = discoveredNodes[0]
+                    result.append(pivot.value)
+                    
+                    if (item.left != nil) {
+                        discoveredNodes.append(item.left!)
+                    }
+                    
+                    if (item.right != nil) {
+                        discoveredNodes.append(item.right!)
+                    }
+                    
+                    discoveredNodes.remove(at: 0)
                 }
-               
-                if (item.right != nil) {
-                    discoveredNodes.append(item.right!)
-                }
-               
-                discoveredNodes.remove(at: 0)
             }
         }
            

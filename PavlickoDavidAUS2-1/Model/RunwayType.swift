@@ -56,20 +56,22 @@ public class RunwayType {
     public func manageAirplane(_ airplane: Airplane) {
         
         var airplaneOnRunway = false
+        
         for runway in runways {
             if runway._airplane == nil {
                 runway._airplane = airplane
                 airplane._runway = runway
                 airplaneOnRunway = true
+                airplane._runwayType = nil
                 break
             }
         }
+        
         if !airplaneOnRunway {
             _ = waitingAirplanes.insert(airplane)
             airplane._pairingHeapNode = priorityWaiting.insert(airplane)
+            airplane._runwayType = self
         }
-        
-        airplane._runwayType = self
     }
     
     public func toExport() -> String {

@@ -25,10 +25,18 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onAdd(_ sender: UIButton) {
         
         if (creatorField.text! != "" && codeField.text! != "" && lengthField.text! != "") {
-
+            
             let airplane = Airplane(creator: creatorField.text!, code: codeField.text!, minLength: Int(lengthField.text!)!, arrivalTime: airport.time, departureRequest: DateTime(nil), departureTime: DateTime(nil), priority: nil)
-            _ = airport.addArrival(airplane)
-            _ = airport.addAirplane(airplane)
+            let airplaneInAir = airport.airplanesInAir.search(airplane, delete: false, closest: false)?.value
+            
+            if (airplaneInAir != nil) {
+
+                _ = airport.addAirplane(airplaneInAir!)
+                
+            } else {
+
+                _ = airport.addAirplane(airplane)
+            }
             
             self.creatorField.text = ""
             self.codeField.text = ""

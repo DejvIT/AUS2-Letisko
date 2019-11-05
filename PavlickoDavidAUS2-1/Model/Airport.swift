@@ -29,16 +29,9 @@ public class Airport {
     }
     
     public func addAirplane(_ airplane: Airplane) -> Airplane? {
-        
-        let airplaneInAir = airplanesInAir.search(airplane, delete: false, closest: false)?.value
-        
-        if (airplaneInAir != nil) {
-            
-            _ = airplanesInAir.delete(airplaneInAir!)
-            airplane.setNonActive()
-        }
 
         _ = waitingForRunway.insert(airplane)
+        airplane.setNonActive()
         return airplanes.insert(airplane)
     }
     

@@ -113,12 +113,26 @@ public class Airplane {
     }
     
     public func setNonActive() {
+        
         self._departureTime = DateTime(nil)
         self._departureRequest = DateTime(nil)
-        self._priority = -1
+        self._priority = nil
         if (self.pairingHeapNode != nil) {
             self.runwayType?.priorityWaiting.deleteNode(self.pairingHeapNode!)
             _ = self.runwayType?.waitingAirplanes.delete(self)
+        }
+        
+        if (runway != nil) {
+            let runwayType = runway?.type
+            runway?._airplane = nil
+            _runway = nil
+            
+            let nextAirplane = runwayType!.priorityWaiting.getRoot()?.value
+            if nextAirplane != nil {
+                runwayType!.priorityWaiting.delete()
+                _ = runwayType!.waitingAirplanes.delete(nextAirplane!)
+                runwayType!.manageAirplane(nextAirplane!)
+            }
         }
     }
     

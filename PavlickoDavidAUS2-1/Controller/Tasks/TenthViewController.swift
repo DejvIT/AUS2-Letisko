@@ -38,6 +38,8 @@ class TenthViewController: UIViewController, UITextFieldDelegate {
                 _ = airport.waitingForRunway.insert(airplane!)
                 
                 descriptionLabel.text = airplane?.toString()
+                
+                codeField.text = ""
             }
             
         }

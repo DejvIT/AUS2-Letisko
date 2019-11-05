@@ -44,7 +44,7 @@ class FourthViewController: UIViewController, UITableViewDataSource, UITableView
                 codeOnRunway.text = airplaneOnRunway?.code
                 descriptionOnRunway.text = airplaneOnRunway?.toString()
                 
-                airplanes = (runway?.type!.waitingAirplanes.inOrder())!
+                airplanes = (runway?.type!.priorityWaiting.levelOrder())!
                 
             } else {
                 
@@ -53,6 +53,8 @@ class FourthViewController: UIViewController, UITableViewDataSource, UITableView
                 codeOnRunway.text = ""
                 descriptionOnRunway.text = ""
             }
+            
+            idField.text = ""
             
             self.table.reloadData()
         }

@@ -1845,7 +1845,7 @@
                                                     <rect key="frame" x="20.5" y="8.5" width="373" height="155"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRA-Im-2vR">
-                                                            <rect key="frame" x="0.0" y="0.0" width="108.5" height="108.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="46.5" height="46.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="kRA-Im-2vR" secondAttribute="height" multiplier="1:1" id="0Vh-vu-NaO"/>
                                                             </constraints>
@@ -1854,7 +1854,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Airplane's code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwn-or-xGn">
-                                                            <rect key="frame" x="108.5" y="0.0" width="264.5" height="31"/>
+                                                            <rect key="frame" x="46.5" y="0.0" width="326.5" height="31"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -1877,7 +1877,7 @@
                                                         <constraint firstItem="r8W-FV-8n9" firstAttribute="leading" secondItem="cRX-zl-ml0" secondAttribute="leading" constant="26" id="gjd-SB-xjX"/>
                                                         <constraint firstAttribute="bottom" secondItem="r8W-FV-8n9" secondAttribute="bottom" constant="8" id="hNF-wE-rbs"/>
                                                         <constraint firstItem="wwn-or-xGn" firstAttribute="height" secondItem="cRX-zl-ml0" secondAttribute="height" multiplier="0.2" id="spn-gB-2hJ"/>
-                                                        <constraint firstItem="kRA-Im-2vR" firstAttribute="height" secondItem="cRX-zl-ml0" secondAttribute="height" multiplier="0.7" id="uP5-TO-R7h"/>
+                                                        <constraint firstItem="kRA-Im-2vR" firstAttribute="height" secondItem="cRX-zl-ml0" secondAttribute="height" multiplier="0.3" id="uP5-TO-R7h"/>
                                                         <constraint firstAttribute="trailing" secondItem="wwn-or-xGn" secondAttribute="trailing" id="vhA-bT-cn4"/>
                                                     </constraints>
                                                 </view>

@@ -45,6 +45,8 @@ class ThirdViewController: UIViewController, UITextFieldDelegate {
                 departure.text = ""
                 priority.text = ""
             }
+            
+            codeField.text = ""
         }
     }
     
