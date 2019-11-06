@@ -62,6 +62,7 @@
 		320DC0F1234BD73300E67A5E /* Airplane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airplane.swift; sourceTree = "<group>"; };
 		320E07B723531EA7001C995D /* SplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplayNode.swift; sourceTree = "<group>"; };
 		320E07B923531EB2001C995D /* SplayTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplayTree.swift; sourceTree = "<group>"; };
+		3233302F2371DB0500B38C6F /* FRI Airlines.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FRI Airlines.entitlements"; sourceTree = "<group>"; };
 		323975B2235B901D00DEA94E /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		323975B5235B90D500DEA94E /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		323975B7235B916500DEA94E /* LinkedListNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedListNode.swift; sourceTree = "<group>"; };
@@ -126,6 +127,7 @@
 		320DC0D2234BADD900E67A5E /* PavlickoDavidAUS2-1 */ = {
 			isa = PBXGroup;
 			children = (
+				3233302F2371DB0500B38C6F /* FRI Airlines.entitlements */,
 				320DC0D3234BADD900E67A5E /* AppDelegate.swift */,
 				320DC0D5234BADD900E67A5E /* SceneDelegate.swift */,
 				32D71BC123571E41002B871B /* Test */,
@@ -520,6 +522,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "PavlickoDavidAUS2-1/FRI Airlines.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9D8N95GRX3;
 				INFOPLIST_FILE = "PavlickoDavidAUS2-1/Info.plist";
@@ -538,6 +541,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "PavlickoDavidAUS2-1/FRI Airlines.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9D8N95GRX3;
 				INFOPLIST_FILE = "PavlickoDavidAUS2-1/Info.plist";

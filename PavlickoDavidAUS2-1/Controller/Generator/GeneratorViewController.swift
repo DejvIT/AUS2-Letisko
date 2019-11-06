@@ -34,6 +34,7 @@ class GeneratorViewController: UIViewController {
     }
     
     @IBAction func onImport(_ sender: UIButton) {
+        
         importExport.prepareForImport()
 
         importButton.isHidden = true

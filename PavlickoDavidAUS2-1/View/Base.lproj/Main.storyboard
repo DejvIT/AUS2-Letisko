@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lQD-nm-yRQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lQD-nm-yRQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -115,7 +115,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVa-SS-t3C">
                                                             <rect key="frame" x="28" y="8.5" width="317" height="98"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <string key="text">vloženie informácie o požiadavke na pridelenie odletovej dráhy (lietadlo sa zaradí medzi čakajúce lietadlá na odletovú dráhu) pre lietadlo (lietadlo je identifikované svojim kódom).</string>
+                                                            <string key="text">Vloženie informácie o požiadavke na pridelenie odletovej dráhy (lietadlo sa zaradí medzi čakajúce lietadlá na odletovú dráhu) pre lietadlo (lietadlo je identifikované svojim kódom).</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -424,7 +424,7 @@
                                                                 <constraint firstItem="uZp-WI-fCl" firstAttribute="centerY" secondItem="0cR-iV-6rp" secondAttribute="centerY" id="zsm-JY-n3W"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="výpis všetkých lietadiel čakajúcich na pridelenie konkrétnej odletovej dráhy usporiadaných podľa ich kódov." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02X-7Y-RkY">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Výpis všetkých lietadiel čakajúcich na pridelenie konkrétnej odletovej dráhy usporiadaných podľa ich kódov." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02X-7Y-RkY">
                                                             <rect key="frame" x="28" y="5.5" width="317" height="67"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -486,7 +486,7 @@
                                                                 <constraint firstAttribute="width" secondItem="1Yl-w6-IIi" secondAttribute="height" multiplier="1:1" id="srG-74-GeS"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="zmena priority lietadla čakajúceho na pridelenie odletovej dráhy (lietadlo je identifikované svojim kódom)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0d-oT-tla">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zmena priority lietadla čakajúceho na pridelenie odletovej dráhy (lietadlo je identifikované svojim kódom)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0d-oT-tla">
                                                             <rect key="frame" x="28" y="5.5" width="317" height="67"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -552,7 +552,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cne-92-JoM">
                                                             <rect key="frame" x="28" y="8.5" width="317" height="101"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <string key="text">výpis všetkých odletových dráh, pričom pre každú dráhu sa vypíšu všetky realizované odlety so všetkými dostupnými informáciami usporiadané podľa poradia v akom sa realizovali.</string>
+                                                            <string key="text">Výpis všetkých odletových dráh, pričom pre každú dráhu sa vypíšu všetky realizované odlety so všetkými dostupnými informáciami usporiadané podľa poradia v akom sa realizovali.</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -615,7 +615,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKn-eF-6de">
                                                             <rect key="frame" x="28" y="8" width="317" height="87"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <string key="text">vyradenie lietadla(lietadlo je identifikované svojim kódom) zo zoznamu čakajúcich lietadiel (zrušenie požiadavky na pridelenie odletovej dráhy)</string>
+                                                            <string key="text">Vyradenie lietadla(lietadlo je identifikované svojim kódom) zo zoznamu čakajúcich lietadiel (zrušenie požiadavky na pridelenie odletovej dráhy)</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1270,15 +1270,15 @@
                     </tabBar>
                     <connections>
                         <segue destination="5R4-D1-u9D" kind="relationship" relationship="viewControllers" id="j8o-Hu-2uK"/>
-                        <segue destination="pMx-2L-BTT" kind="relationship" relationship="viewControllers" id="B18-Qj-6yf"/>
                         <segue destination="IZs-CT-M9t" kind="relationship" relationship="viewControllers" id="sfk-ws-1Re"/>
+                        <segue destination="pMx-2L-BTT" kind="relationship" relationship="viewControllers" id="B18-Qj-6yf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I0u-PM-PDQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="125.89285714285714"/>
         </scene>
-        <!--Kontrolér-->
+        <!--Nastavenia-->
         <scene sceneID="Jwz-3Z-mcH">
             <objects>
                 <viewController id="VLe-wo-6Sk" customClass="GeneratorViewController" customModule="FRI_Airlines" customModuleProvider="target" sceneMemberID="viewController">
@@ -1378,7 +1378,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XqO-RP-nfW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Kontrolér" id="5pS-3L-cyJ"/>
+                    <navigationItem key="navigationItem" title="Nastavenia" id="5pS-3L-cyJ"/>
                     <connections>
                         <outlet property="airplanesButton" destination="e3H-I0-dgH" id="SSP-Lu-OM8"/>
                         <outlet property="exportButton" destination="JxO-PR-CI7" id="DVJ-gl-WiG"/>
@@ -2619,11 +2619,11 @@
             </objects>
             <point key="canvasLocation" x="1992.753623188406" y="1331.9196428571429"/>
         </scene>
-        <!--Kontrolér-->
+        <!--Nastavenia-->
         <scene sceneID="lfq-Xd-saT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pMx-2L-BTT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Kontrolér" image="gamecontroller.fill" catalog="system" id="4YI-pW-qd2"/>
+                    <tabBarItem key="tabBarItem" title="Nastavenia" image="wrench.fill" catalog="system" id="4YI-pW-qd2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="5n0-Dd-XBV">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -2695,8 +2695,8 @@
     <resources>
         <image name="flame.fill" catalog="system" width="54" height="64"/>
         <image name="front-plane" width="480" height="201"/>
-        <image name="gamecontroller.fill" catalog="system" width="64" height="40"/>
         <image name="list.dash" catalog="system" width="64" height="42"/>
+        <image name="wrench.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QlK-Z5-nkG"/>
